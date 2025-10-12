@@ -78,7 +78,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen" style="min-height: 100vh;">
+<body class="bg-gray-50 flex flex-col min-h-screen">
 <!-- Vanta.js Background -->
     <div id="vanta-bg" class="fixed w-full h-full z-0"></div>
     <!-- Navigation -->
@@ -96,7 +96,7 @@
     <a href="#gallery" class="text-gray-700 hover:text-abc-lightblue font-medium">Gallery</a>
     <a href="#register" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue hover:scale-105 transition duration-300 transform">Register</a>
                     <a href="login.html" class="text-gray-700 hover:bg-abc-blue hover:scale-105 px-4 py-2 rounded-md transition duration-300">Login</a>
-                    <a href="dashboard.html" class="text-gray-700 hover:bg-abc-blue hover:scale-105 px-4 py-2 rounded-md transition duration-300">Dashboard</a>
+                    <a href="dashboard.html" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue hover:scale-105 transition duration-300 transform">Dashboard</a>
 </div>
                 <div class="md:hidden">
                     <button id="menu-btn" class="text-gray-700 focus:outline-none">
@@ -112,7 +112,6 @@
                 <a href="#team" class="block py-2 text-gray-700 hover:text-abc-lightblue">Team</a>
                 <a href="#gallery" class="block py-2 text-gray-700 hover:text-abc-lightblue">Gallery</a>
 <a href="login.html" class="block py-2 text-gray-700 hover:text-abc-lightblue">Login</a>
-<a href="dashboard.html" class="block py-2 text-gray-700 hover:text-abc-lightblue">Dashboard</a>
 <a href="#register" class="block bg-abc-blue text-white px-4 py-2 rounded-md mt-2 w-max">Register</a>
 </div>
         </div>
@@ -462,7 +461,7 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-abc-blue text-white py-12 mt-auto w-full">
+    <footer class="bg-abc-blue text-white py-12 mt-auto">
 <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -524,43 +523,52 @@
         </div>
     </footer>
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scroll to section with requestAnimationFrame for 60fps
+        function smoothScrollTo(target) {
+            const element = document.querySelector(target);
+            if (!element) return;
+            
+            const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 800; // ms
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            // Easing function for smooth acceleration/deceleration
+            function ease(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Add smooth scroll to all nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (!targetElement) return;
-                
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 800;
-                let startTime = null;
-                
-                function animation(currentTime) {
-                    if (!startTime) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const run = ease(timeElapsed, startPosition, distance, duration);
-                    window.scrollTo(0, run);
-                    if (timeElapsed < duration) {
-                        requestAnimationFrame(animation);
-                    }
-                }
-                
-                function ease(t, b, c, d) {
-                    t /= d/2;
-                    if (t < 1) return c/2*t*t*t + b;
-                    t -= 2;
-                    return c/2*(t*t*t + 2) + b;
-                }
-                
-                requestAnimationFrame(animation);
+                const target = this.getAttribute('href');
+                if (target === '#') return;
+                smoothScrollTo(target);
+            // Force hardware acceleration for smoother animations
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.willChange = 'transform, opacity';
             });
         });
+
+        // Enable passive event listeners for better scrolling performance
+        document.addEventListener('touchmove', function() {}, { passive: true });
+});
 
         // Navigation scroll behavior
         let lastScrollY = window.scrollY;
@@ -588,9 +596,10 @@
                 ticking = true;
             }
         }, { passive: true });
-// Initialize Vanta.js background
-VANTA.NET({
-            el: "#vanta-bg",
+
+        // Initialize Vanta.js background
+        VANTA.NET({
+el: "#vanta-bg",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -607,26 +616,26 @@ VANTA.NET({
         // Ensure nav is visible when menu is open
         document.getElementById('menu-btn').addEventListener('click', function() {
             nav.style.transform = 'translateY(0)';
-        });
-
-        // Mobile menu toggle
-document.getElementById('menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
         // Close mobile menu when clicking on a link and ensure nav stays visible
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+            link.addEventListener('click', function(e) {
+                if (link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = link.getAttribute('href');
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    smoothScrollTo(target);
+                } else {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
                 nav.style.transform = 'translateY(0)';
-            });
-        });
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
         // Feather icons
         feather.replace();
+        
         // Reset nav position when reaching top
         window.addEventListener('scroll', () => {
             if (window.scrollY <= 100) {
@@ -634,28 +643,17 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
             }
         }, { passive: true });
 
-        // Initialize AOS animation
-document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS animation with optimized settings
+        document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 duration: 800,
-                easing: 'ease-in-out',
+                easing: 'ease-in-out-quart',
                 once: true,
-                offset: 100
+                offset: 100,
+                disable: window.innerWidth < 768 // Disable on mobile for performance
             });
-        });
+});
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
-<style>
-    html, body {
-        height: 100%;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-    }
-    main {
-        flex: 1;
-    }
-</style>
 </html>
