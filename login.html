@@ -1,256 +1,231 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #4f7b3d; -webkit-text-stroke: #4f7b3d}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 14.0px}
-    span.s1 {font-kerning: none; background-color: #171717}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171717; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171717; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #cacaca; background-color: #171717; -webkit-text-stroke: 0px #cacaca}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #171717; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #171717; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171717; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none}
-    span.s9 {font-kerning: none; color: #a7c598; background-color: #171717; -webkit-text-stroke: 0px #a7c598}
-    span.s10 {font-kerning: none; color: #36c0a0; background-color: #171717; -webkit-text-stroke: 0px #36c0a0}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC MUN - Login</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-abc-blue {
+            background-color: #003366;
+        }
+        .text-abc-blue {
+            color: #003366;
+        }
+        .text-abc-lightblue {
+            color: #006699;
+        }
+        .bg-abc-lightblue {
+            background-color: #006699;
+        }
+        .text-abc-gold {
+            color: #CC9933;
+        }
+        .bg-abc-gold {
+            background-color: #CC9933;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">ABC MUN - Login</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"image/x-icon"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"/static/favicon.ico"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/feather-icons"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://unpkg.com/aos@2.3.1/dist/aos.css"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s1">'Montserrat'</span><span class="s7">,</span><span class="s4"> </span><span class="s1">sans-serif</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-blue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #003366</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-blue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #003366</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-lightblue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #006699</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-lightblue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #006699</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-gold</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #CC9933</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-gold</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #CC9933</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-blue-50 min-h-screen flex flex-col"</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"min-height: 100vh;"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1">&lt;!-- Navigation --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"main-nav"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"fixed w-full z-50 bg-white shadow-md transform transition-transform duration-300 ease-out"</span><span class="s4"> </span><span class="s2">style</span><span class="s3">=</span><span class="s1">"will-change: transform;"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6 py-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html"</span><span class="s3">&gt;&lt;</span><span class="s6">img</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp"</span><span class="s4"> </span><span class="s2">alt</span><span class="s3">=</span><span class="s1">"ABC Logo"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"h-12"</span><span class="s3">&gt;&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:flex items-center space-x-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#about"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 hover:text-abc-lightblue font-medium"</span><span class="s3">&gt;</span><span class="s4">About</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#timeline"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 hover:text-abc-lightblue font-medium"</span><span class="s3">&gt;</span><span class="s4">Schedule</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#committees"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 hover:text-abc-lightblue font-medium"</span><span class="s3">&gt;</span><span class="s4">Committees</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#team"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 hover:text-abc-lightblue font-medium"</span><span class="s3">&gt;</span><span class="s4">Team</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#gallery"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 hover:text-abc-lightblue font-medium"</span><span class="s3">&gt;</span><span class="s4">Gallery</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"md:hidden"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"menu-btn"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-gray-700 focus:outline-none"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"menu"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Mobile Menu --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"mobile-menu"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:hidden mt-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#about"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block py-2 text-gray-700 hover:text-abc-lightblue"</span><span class="s3">&gt;</span><span class="s4">About</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#timeline"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block py-2 text-gray-700 hover:text-abc-lightblue"</span><span class="s3">&gt;</span><span class="s4">Schedule</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#committees"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block py-2 text-gray-700 hover:text-abc-lightblue"</span><span class="s3">&gt;</span><span class="s4">Committees</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#team"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block py-2 text-gray-700 hover:text-abc-lightblue"</span><span class="s3">&gt;</span><span class="s4">Team</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#gallery"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block py-2 text-gray-700 hover:text-abc-lightblue"</span><span class="s3">&gt;</span><span class="s4">Gallery</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s8"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex-grow flex items-center justify-center mt-20"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto px-6"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8"</span><span class="s4"> </span><span class="s2">data-aos</span><span class="s3">=</span><span class="s1">"zoom-in"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center mb-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl font-bold text-abc-blue mb-2"</span><span class="s3">&gt;</span><span class="s4">Welcome Back</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-20 h-1 bg-abc-gold mx-auto"</span><span class="s3">&gt;&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">form</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"space-y-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"email"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block text-sm font-medium text-gray-700 mb-1"</span><span class="s3">&gt;</span><span class="s4">Email</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"email"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"email"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue"</span><span class="s4"> </span><span class="s2">placeholder</span><span class="s3">=</span><span class="s1">"your@email.com"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"password"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"block text-sm font-medium text-gray-700 mb-1"</span><span class="s3">&gt;</span><span class="s4">Password</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"password"</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"password"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue"</span><span class="s4"> </span><span class="s2">placeholder</span><span class="s3">=</span><span class="s1">"••••••••"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">input</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"remember-me"</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"remember-me"</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"checkbox"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"h-4 w-4 text-abc-lightblue focus:ring-abc-lightblue border-gray-300 rounded"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">label</span><span class="s4"> </span><span class="s2">for</span><span class="s3">=</span><span class="s1">"remember-me"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"ml-2 block text-sm text-gray-700"</span><span class="s3">&gt;</span><span class="s4">Remember me</span><span class="s3">&lt;/</span><span class="s6">label</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-medium text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Forgot password?</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"submit"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-full bg-abc-lightblue hover:bg-abc-blue text-white hover:text-white font-bold py-3 px-4 rounded-md hover:scale-105 transition duration-300 transform"</span><span class="s3">&gt;</span><span class="s4">Sign In</span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">form</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-6 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-gray-600"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>Don't have an account?</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"index.html#register"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-medium text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Register now</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>or go to</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"dashboard.html"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"font-medium text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Dashboard</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Smooth scrolling for navigation links</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">querySelectorAll</span><span class="s7">(</span><span class="s5">'a[href^="#"]'</span><span class="s7">).</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">anchor </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>anchor</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s1"> </span><span class="s7">(</span><span class="s1">e</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>e</span><span class="s7">.</span><span class="s1">preventDefault</span><span class="s7">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> targetId </span><span class="s7">=</span><span class="s1"> </span><span class="s6">this</span><span class="s7">.</span><span class="s1">getAttribute</span><span class="s7">(</span><span class="s5">'href'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">targetId </span><span class="s7">===</span><span class="s1"> </span><span class="s5">'#'</span><span class="s7">)</span><span class="s1"> </span><span class="s6">return</span><span class="s7">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> targetElement </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">querySelector</span><span class="s7">(</span><span class="s1">targetId</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(!</span><span class="s1">targetElement</span><span class="s7">)</span><span class="s1"> </span><span class="s6">return</span><span class="s7">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> targetPosition </span><span class="s7">=</span><span class="s1"> targetElement</span><span class="s7">.</span><span class="s1">getBoundingClientRect</span><span class="s7">().</span><span class="s1">top </span><span class="s7">+</span><span class="s1"> window</span><span class="s7">.</span><span class="s1">pageYOffset</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> startPosition </span><span class="s7">=</span><span class="s1"> window</span><span class="s7">.</span><span class="s1">pageYOffset</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> distance </span><span class="s7">=</span><span class="s1"> targetPosition </span><span class="s7">-</span><span class="s1"> startPosition</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">const</span><span class="s1"> duration </span><span class="s7">=</span><span class="s1"> </span><span class="s9">800</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">let</span><span class="s1"> startTime </span><span class="s7">=</span><span class="s1"> </span><span class="s6">null</span><span class="s7">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">function</span><span class="s1"> animation</span><span class="s7">(</span><span class="s1">currentTime</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(!</span><span class="s1">startTime</span><span class="s7">)</span><span class="s1"> startTime </span><span class="s7">=</span><span class="s1"> currentTime</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">const</span><span class="s1"> timeElapsed </span><span class="s7">=</span><span class="s1"> currentTime </span><span class="s7">-</span><span class="s1"> startTime</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">const</span><span class="s1"> run </span><span class="s7">=</span><span class="s1"> ease</span><span class="s7">(</span><span class="s1">timeElapsed</span><span class="s7">,</span><span class="s1"> startPosition</span><span class="s7">,</span><span class="s1"> distance</span><span class="s7">,</span><span class="s1"> duration</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>window</span><span class="s7">.</span><span class="s1">scrollTo</span><span class="s7">(</span><span class="s9">0</span><span class="s7">,</span><span class="s1"> run</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">timeElapsed </span><span class="s7">&lt;</span><span class="s1"> duration</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>requestAnimationFrame</span><span class="s7">(</span><span class="s1">animation</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">function</span><span class="s1"> ease</span><span class="s7">(</span><span class="s1">t</span><span class="s7">,</span><span class="s1"> b</span><span class="s7">,</span><span class="s1"> c</span><span class="s7">,</span><span class="s1"> d</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>t </span><span class="s7">/=</span><span class="s1"> d</span><span class="s7">/</span><span class="s9">2</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">t </span><span class="s7">&lt;</span><span class="s1"> </span><span class="s9">1</span><span class="s7">)</span><span class="s1"> </span><span class="s6">return</span><span class="s1"> c</span><span class="s7">/</span><span class="s9">2</span><span class="s7">*</span><span class="s1">t</span><span class="s7">*</span><span class="s1">t</span><span class="s7">*</span><span class="s1">t </span><span class="s7">+</span><span class="s1"> b</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>t </span><span class="s7">-=</span><span class="s1"> </span><span class="s9">2</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s6">return</span><span class="s1"> c</span><span class="s7">/</span><span class="s9">2</span><span class="s7">*(</span><span class="s1">t</span><span class="s7">*</span><span class="s1">t</span><span class="s7">*</span><span class="s1">t </span><span class="s7">+</span><span class="s1"> </span><span class="s9">2</span><span class="s7">)</span><span class="s1"> </span><span class="s7">+</span><span class="s1"> b</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>requestAnimationFrame</span><span class="s7">(</span><span class="s1">animation</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s8"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Navigation scroll behavior</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">let</span><span class="s1"> lastScrollY </span><span class="s7">=</span><span class="s1"> window</span><span class="s7">.</span><span class="s1">scrollY</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">let</span><span class="s1"> ticking </span><span class="s7">=</span><span class="s1"> </span><span class="s6">false</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">const</span><span class="s1"> nav </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s5">'main-nav'</span><span class="s7">);</span></p>
-<p class="p6"><span class="s8"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">function</span><span class="s1"> updateNav</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">const</span><span class="s1"> currentScrollY </span><span class="s7">=</span><span class="s1"> window</span><span class="s7">.</span><span class="s1">scrollY</span><span class="s7">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">currentScrollY </span><span class="s7">&gt;</span><span class="s1"> lastScrollY </span><span class="s7">&amp;&amp;</span><span class="s1"> currentScrollY </span><span class="s7">&gt;</span><span class="s1"> </span><span class="s9">100</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">// Scrolling down - hide nav</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>nav</span><span class="s7">.</span><span class="s1">style</span><span class="s7">.</span><span class="s1">transform </span><span class="s7">=</span><span class="s1"> </span><span class="s5">'translateY(-100%)'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span><span class="s1"> </span><span class="s6">else</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">// Scrolling up or at top - show nav</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>nav</span><span class="s7">.</span><span class="s1">style</span><span class="s7">.</span><span class="s1">transform </span><span class="s7">=</span><span class="s1"> </span><span class="s5">'translateY(0)'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>lastScrollY </span><span class="s7">=</span><span class="s1"> currentScrollY</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>ticking </span><span class="s7">=</span><span class="s1"> </span><span class="s6">false</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s8"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>window</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'scroll'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(!</span><span class="s1">ticking</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>window</span><span class="s7">.</span><span class="s1">requestAnimationFrame</span><span class="s7">(</span><span class="s1">updateNav</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>ticking </span><span class="s7">=</span><span class="s1"> </span><span class="s6">true</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">},</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> passive</span><span class="s7">:</span><span class="s1"> </span><span class="s6">true</span><span class="s1"> </span><span class="s7">});</span></p>
-<p class="p5"><span class="s1">// Ensure nav is visible when menu is open</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s5">'menu-btn'</span><span class="s7">).</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>nav</span><span class="s7">.</span><span class="s1">style</span><span class="s7">.</span><span class="s1">transform </span><span class="s7">=</span><span class="s1"> </span><span class="s5">'translateY(0)'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s8"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Mobile menu toggle</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s5">'menu-btn'</span><span class="s7">).</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s5">'mobile-menu'</span><span class="s7">).</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">toggle</span><span class="s7">(</span><span class="s5">'hidden'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Close mobile menu when clicking on a link and ensure nav stays visible</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">querySelectorAll</span><span class="s7">(</span><span class="s5">'#mobile-menu a'</span><span class="s7">).</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">link </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>link</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s5">'mobile-menu'</span><span class="s7">).</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">add</span><span class="s7">(</span><span class="s5">'hidden'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>nav</span><span class="s7">.</span><span class="s1">style</span><span class="s7">.</span><span class="s1">transform </span><span class="s7">=</span><span class="s1"> </span><span class="s5">'translateY(0)'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p5"><span class="s1">// Reset nav position when reaching top</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>window</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'scroll'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s6">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">window</span><span class="s7">.</span><span class="s1">scrollY </span><span class="s7">&lt;=</span><span class="s1"> </span><span class="s9">100</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>nav</span><span class="s7">.</span><span class="s1">style</span><span class="s7">.</span><span class="s1">transform </span><span class="s7">=</span><span class="s1"> </span><span class="s5">'translateY(0)'</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">},</span><span class="s1"> </span><span class="s7">{</span><span class="s1"> passive</span><span class="s7">:</span><span class="s1"> </span><span class="s6">true</span><span class="s1"> </span><span class="s7">});</span></p>
-<p class="p5"><span class="s1">// Feather icons</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>feather</span><span class="s7">.</span><span class="s1">replace</span><span class="s7">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Initialize AOS animation</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'DOMContentLoaded'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s10">AOS</span><span class="s7">.</span><span class="s1">init</span><span class="s7">({</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>duration</span><span class="s7">:</span><span class="s1"> </span><span class="s9">800</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>easing</span><span class="s7">:</span><span class="s1"> </span><span class="s5">'ease-in-out'</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>once</span><span class="s7">:</span><span class="s1"> </span><span class="s6">true</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>offset</span><span class="s7">:</span><span class="s1"> </span><span class="s9">100</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/aos@2.3.1/dist/aos.js"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s1">html</span><span class="s7">,</span><span class="s4"> </span><span class="s1">body</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">100%</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">flex</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">flex-direction:</span><span class="s4"> </span><span class="s5">column</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s6">main</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s2">flex:</span><span class="s1"> </span><span class="s9">1</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="bg-blue-50 min-h-screen flex flex-col">
+<!-- Navigation -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white shadow-md transform transition-transform duration-300 ease-out" style="will-change: transform;">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html"><img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp" alt="ABC Logo" class="h-12"></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#about" class="text-gray-700 hover:text-abc-lightblue font-medium">About</a>
+                    <a href="index.html#timeline" class="text-gray-700 hover:text-abc-lightblue font-medium">Schedule</a>
+                    <a href="index.html#committees" class="text-gray-700 hover:text-abc-lightblue font-medium">Committees</a>
+                    <a href="index.html#team" class="text-gray-700 hover:text-abc-lightblue font-medium">Team</a>
+                    <a href="index.html#gallery" class="text-gray-700 hover:text-abc-lightblue font-medium">Gallery</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="index.html#about" class="block py-2 text-gray-700 hover:text-abc-lightblue">About</a>
+                <a href="index.html#timeline" class="block py-2 text-gray-700 hover:text-abc-lightblue">Schedule</a>
+                <a href="index.html#committees" class="block py-2 text-gray-700 hover:text-abc-lightblue">Committees</a>
+                <a href="index.html#team" class="block py-2 text-gray-700 hover:text-abc-lightblue">Team</a>
+                <a href="index.html#gallery" class="block py-2 text-gray-700 hover:text-abc-lightblue">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex-grow flex items-center justify-center mt-20">
+<div class="container mx-auto px-6">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8" data-aos="zoom-in">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-abc-blue mb-2">Welcome Back</h1>
+                <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
+            </div>
+            
+            <form class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue" placeholder="your@email.com">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue" placeholder="••••••••">
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-abc-lightblue focus:ring-abc-lightblue border-gray-300 rounded">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                    </div>
+                    
+                    <div class="text-sm">
+                        <a href="#" class="font-medium text-abc-lightblue hover:text-abc-blue">Forgot password?</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <button type="submit" class="w-full bg-abc-lightblue hover:bg-abc-blue text-white hover:text-white font-bold py-3 px-4 rounded-md hover:scale-105 transition duration-300 transform">Sign In</button>
+</div>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600">
+                    Don't have an account?
+                <a href="#register" class="font-medium text-abc-lightblue hover:text-abc-blue">Register now</a> or 
+                <a href="dashboard.html" class="font-medium text-abc-lightblue hover:text-abc-blue">View Dashboard</a>
+</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Smooth scroll to section with requestAnimationFrame for 60fps
+        function smoothScrollTo(target) {
+            const element = document.querySelector(target);
+            if (!element) return;
+            
+            const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 800; // ms
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            // Easing function for smooth acceleration/deceleration
+            function ease(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Add smooth scroll to all nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                if (target === '#') return;
+                smoothScrollTo(target);
+            });
+        });
+
+        // Navigation scroll behavior
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const nav = document.getElementById('main-nav');
+
+        function updateNav() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down - hide nav
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up or at top - show nav
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNav);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Ensure nav is visible when menu is open
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            nav.style.transform = 'translateY(0)';
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link and ensure nav stays visible
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = link.getAttribute('href');
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    smoothScrollTo(target);
+                } else {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+                nav.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Feather icons
+        feather.replace();
+        
+        // Reset nav position when reaching top
+        window.addEventListener('scroll', () => {
+            if (window.scrollY <= 100) {
+                nav.style.transform = 'translateY(0)';
+            }
+        }, { passive: true });
+
+        // Initialize AOS animation with optimized settings
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out-quart',
+                once: true,
+                offset: 100,
+                disable: window.innerWidth < 768 // Disable on mobile for performance
+            });
+
+            // Force hardware acceleration for smoother animations
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.willChange = 'transform, opacity';
+            });
+        });
+
+        // Enable passive event listeners for better scrolling performance
+        document.addEventListener('touchmove', function() {}, { passive: true });
+</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
