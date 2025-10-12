@@ -1,291 +1,261 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #4f7b3d; -webkit-text-stroke: #4f7b3d}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 14.0px}
-    span.s1 {font-kerning: none; background-color: #171717}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171717; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171717; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #cacaca; background-color: #171717; -webkit-text-stroke: 0px #cacaca}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #171717; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #171717; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171717; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none; color: #a7c598; background-color: #171717; -webkit-text-stroke: 0px #a7c598}
-    span.s9 {font-kerning: none}
-    span.s10 {font-kerning: none; color: #4f7b3d; background-color: #171717; -webkit-text-stroke: 0px #4f7b3d}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ABC MUN</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-abc-blue {
+            background-color: #003366;
+        }
+        .text-abc-blue {
+            color: #003366;
+        }
+        .text-abc-lightblue {
+            color: #006699;
+        }
+        .bg-abc-lightblue {
+            background-color: #006699;
+        }
+        .text-abc-gold {
+            color: #CC9933;
+        }
+        .bg-abc-gold {
+            background-color: #CC9933;
+        }
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        .active-nav-item {
+            background-color: rgba(0, 102, 153, 0.1);
+            border-left: 4px solid #006699;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">Dashboard - ABC MUN</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"icon"</span><span class="s4"> </span><span class="s2">type</span><span class="s3">=</span><span class="s1">"image/x-icon"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"/static/favicon.ico"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://unpkg.com/feather-icons"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s6">@import</span><span class="s4"> </span><span class="s1">url</span><span class="s7">(</span><span class="s1">'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s4"> </span><span class="s1">'Montserrat'</span><span class="s7">,</span><span class="s4"> </span><span class="s1">sans-serif</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-blue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #003366</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-blue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #003366</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-lightblue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #006699</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-lightblue</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #006699</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.text-abc-gold</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #CC9933</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.bg-abc-gold</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #CC9933</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.sidebar</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s1"> </span><span class="s5">all</span><span class="s1"> </span><span class="s8">0.3s</span><span class="s1"> </span><span class="s5">ease</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.active-nav-item</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">background-color:</span><span class="s4"> </span><span class="s5">rgba(</span><span class="s8">0</span><span class="s7">,</span><span class="s4"> </span><span class="s8">102</span><span class="s7">,</span><span class="s4"> </span><span class="s8">153</span><span class="s7">,</span><span class="s4"> </span><span class="s8">0.1</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-left:</span><span class="s1"> </span><span class="s8">4px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #006699</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex h-screen"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Sidebar --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"sidebar bg-white w-64 shadow-lg"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-4 border-b"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp"</span><span class="s4"> </span><span class="s2">alt</span><span class="s3">=</span><span class="s1">"ABC MUN Logo"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"h-10"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center space-x-3 mb-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">img</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"http://static.photos/people/200x200/8"</span><span class="s4"> </span><span class="s2">alt</span><span class="s3">=</span><span class="s1">"User"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-10 h-10 rounded-full"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium"</span><span class="s3">&gt;</span><span class="s1">John Doe</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xs text-gray-500"</span><span class="s3">&gt;</span><span class="s1">Delegate</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">nav</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"space-y-1"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md active-nav-item"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"home"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Dashboard</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"clipboard"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Committee</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"calendar"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Schedule</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"file-text"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Documents</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"users"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Delegates</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"message-square"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Messages</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"settings"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mr-3"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>Settings</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">nav</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Main Content --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex-1 overflow-auto"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Header --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">header</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white shadow-sm"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between px-6 py-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-semibold text-gray-800"</span><span class="s3">&gt;&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center space-x-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 text-gray-600 hover:text-gray-900"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"bell"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 text-gray-600 hover:text-gray-900"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"log-out"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">header</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Dashboard Content --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">main</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-6"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Status Card 1 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow p-6"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-700"</span><span class="s3">&gt;</span><span class="s1">Committee</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 rounded-full bg-blue-100 text-blue-600"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"users"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-2xl font-bold text-abc-blue mb-2"</span><span class="s3">&gt;</span><span class="s1">UN Security Council</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-500"</span><span class="s3">&gt;</span><span class="s1">Representing: United States</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Status Card 2 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow p-6"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-700"</span><span class="s3">&gt;</span><span class="s1">Current Session</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 rounded-full bg-green-100 text-green-600"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"clock"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-2xl font-bold text-abc-blue mb-2"</span><span class="s3">&gt;</span><span class="s1">Resolution Drafting</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-500"</span><span class="s3">&gt;</span><span class="s1">Room: A212</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Status Card 3 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow p-6"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center justify-between mb-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-700"</span><span class="s3">&gt;</span><span class="s1">Next Session</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 rounded-full bg-yellow-100 text-yellow-600"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"calendar"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-2xl font-bold text-abc-blue mb-2"</span><span class="s3">&gt;</span><span class="s1">Voting Procedure</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-500"</span><span class="s3">&gt;</span><span class="s1">Tomorrow, 10:00 AM</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Schedule Section --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow mb-6"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4 border-b"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-lg font-semibold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Today's Schedule</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Schedule Item 1 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-blue-100 text-blue-600 rounded-full mr-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"clock"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"w-4 h-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex-1"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Opening Remarks</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">09:00 - 09:30 • Main Hall</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Schedule Item 2 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-purple-100 text-purple-600 rounded-full mr-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"users"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"w-4 h-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex-1"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Committee Session</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">09:30 - 11:30 • Room A212</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Schedule Item 3 --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-start"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-green-100 text-green-600 rounded-full mr-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"coffee"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"w-4 h-4"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex-1"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Coffee Break</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600"</span><span class="s3">&gt;</span><span class="s1">11:30 - 12:00 • Lobby</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;!-- Documents Section --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-lg shadow"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4 border-b"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-lg font-semibold text-gray-800"</span><span class="s3">&gt;</span><span class="s1">Important Documents</span><span class="s3">&lt;/</span><span class="s6">h2</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"p-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Document 1 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border rounded-lg p-4 hover:shadow-md transition"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-center mb-3"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-red-100 text-red-600 rounded-full mr-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"file-text"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium"</span><span class="s3">&gt;</span><span class="s1">Background Guide</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600 mb-3"</span><span class="s3">&gt;</span><span class="s1">Essential reading for all delegates</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Download</span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Document 2 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border rounded-lg p-4 hover:shadow-md transition"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-center mb-3"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-blue-100 text-blue-600 rounded-full mr-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"file-text"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium"</span><span class="s3">&gt;</span><span class="s1">Draft Resolution</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600 mb-3"</span><span class="s3">&gt;</span><span class="s1">Current working document</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Download</span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s10">&lt;!-- Document 3 --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"border rounded-lg p-4 hover:shadow-md transition"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"flex items-center mb-3"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-2 bg-green-100 text-green-600 rounded-full mr-3"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s6">i</span><span class="s1"> </span><span class="s2">data-feather</span><span class="s3">=</span><span class="s5">"file-text"</span><span class="s3">&gt;&lt;/</span><span class="s6">i</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s6">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"font-medium"</span><span class="s3">&gt;</span><span class="s1">Rules of Procedure</span><span class="s3">&lt;/</span><span class="s6">h3</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-600 mb-3"</span><span class="s3">&gt;</span><span class="s1">MUN parliamentary procedures</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s6">button</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-sm text-abc-lightblue hover:text-abc-blue"</span><span class="s3">&gt;</span><span class="s4">Download</span><span class="s3">&lt;/</span><span class="s6">button</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Feather icons</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>feather</span><span class="s7">.</span><span class="s1">replace</span><span class="s7">();</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Toggle sidebar on mobile</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">querySelector</span><span class="s7">(</span><span class="s5">'[data-feather="menu"]'</span><span class="s7">).</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>document</span><span class="s7">.</span><span class="s1">querySelector</span><span class="s7">(</span><span class="s5">'.sidebar'</span><span class="s7">).</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">toggle</span><span class="s7">(</span><span class="s5">'hidden'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s9"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">// Set active nav item</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">const</span><span class="s1"> navItems </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">querySelectorAll</span><span class="s7">(</span><span class="s5">'nav a'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>navItems</span><span class="s7">.</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">item </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>item</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s5">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s6">function</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>navItems</span><span class="s7">.</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">i </span><span class="s7">=&gt;</span><span class="s1"> i</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">remove</span><span class="s7">(</span><span class="s5">'active-nav-item'</span><span class="s7">));</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s6">this</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">add</span><span class="s7">(</span><span class="s5">'active-nav-item'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-white w-64 shadow-lg">
+            <div class="p-4 border-b">
+                <img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp" alt="ABC MUN Logo" class="h-10">
+            </div>
+            <div class="p-4">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="http://static.photos/people/200x200/8" alt="User" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="font-medium">John Doe</p>
+                        <p class="text-xs text-gray-500">Delegate</p>
+                    </div>
+                </div>
+                
+                <nav class="space-y-1">
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md active-nav-item">
+                        <i data-feather="home" class="mr-3"></i>
+                        Dashboard
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="clipboard" class="mr-3"></i>
+                        Committee
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="calendar" class="mr-3"></i>
+                        Schedule
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="file-text" class="mr-3"></i>
+                        Documents
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="users" class="mr-3"></i>
+                        Delegates
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="message-square" class="mr-3"></i>
+                        Messages
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="settings" class="mr-3"></i>
+                        Settings
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center">
+                        <h1 class="text-xl font-semibold text-gray-800"></h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-600 hover:text-gray-900">
+                            <i data-feather="bell"></i>
+                        </button>
+                        <button class="p-2 text-gray-600 hover:text-gray-900">
+                            <i data-feather="log-out"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <!-- Status Card 1 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Committee</h3>
+                            <div class="p-2 rounded-full bg-blue-100 text-blue-600">
+                                <i data-feather="users"></i>
+                            </div>
+                        </div>
+                        <p class="text-2xl font-bold text-abc-blue mb-2">UN Security Council</p>
+                        <p class="text-sm text-gray-500">Representing: United States</p>
+                    </div>
+
+                    <!-- Status Card 2 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Current Session</h3>
+                            <div class="p-2 rounded-full bg-green-100 text-green-600">
+                                <i data-feather="clock"></i>
+                            </div>
+                        </div>
+                        <p class="text-2xl font-bold text-abc-blue mb-2">Resolution Drafting</p>
+                        <p class="text-sm text-gray-500">Room: A212</p>
+                    </div>
+
+                    <!-- Status Card 3 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Next Session</h3>
+                            <div class="p-2 rounded-full bg-yellow-100 text-yellow-600">
+                                <i data-feather="calendar"></i>
+                            </div>
+                        </div>
+                        <p class="text-2xl font-bold text-abc-blue mb-2">Voting Procedure</p>
+                        <p class="text-sm text-gray-500">Tomorrow, 10:00 AM</p>
+                    </div>
+                </div>
+
+                <!-- Schedule Section -->
+                <div class="bg-white rounded-lg shadow mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold text-gray-800">Today's Schedule</h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="space-y-4">
+                            <!-- Schedule Item 1 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-blue-100 text-blue-600 rounded-full mr-4">
+                                    <i data-feather="clock" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Opening Remarks</h3>
+                                    <p class="text-sm text-gray-600">09:00 - 09:30 • Main Hall</p>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Item 2 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-purple-100 text-purple-600 rounded-full mr-4">
+                                    <i data-feather="users" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Committee Session</h3>
+                                    <p class="text-sm text-gray-600">09:30 - 11:30 • Room A212</p>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Item 3 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-green-100 text-green-600 rounded-full mr-4">
+                                    <i data-feather="coffee" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Coffee Break</h3>
+                                    <p class="text-sm text-gray-600">11:30 - 12:00 • Lobby</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Section -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold text-gray-800">Important Documents</h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Document 1 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-red-100 text-red-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Background Guide</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Essential reading for all delegates</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+
+                            <!-- Document 2 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-blue-100 text-blue-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Draft Resolution</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Current working document</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+
+                            <!-- Document 3 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-green-100 text-green-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Rules of Procedure</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">MUN parliamentary procedures</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Feather icons
+        feather.replace();
+
+        // Toggle sidebar on mobile
+        document.querySelector('[data-feather="menu"]').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+        });
+
+        // Set active nav item
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(i => i.classList.remove('active-nav-item'));
+                this.classList.add('active-nav-item');
+            });
+        });
+    </script>
 </body>
 </html>
