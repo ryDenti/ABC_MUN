@@ -3,49 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC MUN</title>
+    <title>Dashboard - ABC MUN</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        [data-aos] {
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        [data-aos="fade-up"] {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        [data-aos="fade-up"].aos-animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        [data-aos="zoom-in"] {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        [data-aos="zoom-in"].aos-animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
         body {
             font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
         }
-.bg-blue-50 {
-            background-color: #f0f9ff;
+        .bg-abc-blue {
+            background-color: #003366;
         }
         .text-abc-blue {
             color: #003366;
-        }
-        .hover\:text-abc-blue:hover {
-            color: #003366 !important;
-        }
-.bg-abc-blue {
-            background-color: #003366;
         }
         .text-abc-lightblue {
             color: #006699;
@@ -59,601 +30,232 @@
         .bg-abc-gold {
             background-color: #CC9933;
         }
-        .header-shadow {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        .sidebar {
+            transition: all 0.3s ease;
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #CC9933;
-        }
-        .committee-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .active-nav-item {
+            background-color: rgba(0, 102, 153, 0.1);
+            border-left: 4px solid #006699;
         }
     </style>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
-<!-- Vanta.js Background -->
-    <div id="vanta-bg" class="fixed w-full h-full z-0"></div>
-    <!-- Navigation -->
-    <nav id="main-nav" class="fixed w-full z-50 bg-white header-shadow transform transition-transform duration-300 ease-out" style="will-change: transform;">
-<div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="#home"><img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp" alt="ABC Logo" class="h-12"></a>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-    <a href="#about" class="text-gray-700 hover:text-abc-lightblue font-medium">About</a>
-    <a href="#timeline" class="text-gray-700 hover:text-abc-lightblue font-medium">Schedule</a>
-    <a href="#committees" class="text-gray-700 hover:text-abc-lightblue font-medium">Committees</a>
-    <a href="#team" class="text-gray-700 hover:text-abc-lightblue font-medium">Team</a>
-    <a href="#gallery" class="text-gray-700 hover:text-abc-lightblue font-medium">Gallery</a>
-    <a href="#register" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue hover:scale-105 transition duration-300 transform">Register</a>
-                    <a href="login.html" class="text-gray-700 hover:bg-abc-blue hover:scale-105 px-4 py-2 rounded-md transition duration-300">Login</a>
-                    <a href="dashboard.html" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue hover:scale-105 transition duration-300 transform">Dashboard</a>
-</div>
-                <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-700 focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-white w-64 shadow-lg">
+            <div class="p-4 border-b">
+                <img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp" alt="ABC MUN Logo" class="h-10">
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4">
-                <a href="#about" class="block py-2 text-gray-700 hover:text-abc-lightblue">About</a>
-                <a href="#timeline" class="block py-2 text-gray-700 hover:text-abc-lightblue">Schedule</a>
-                <a href="#committees" class="block py-2 text-gray-700 hover:text-abc-lightblue">Committees</a>
-                <a href="#team" class="block py-2 text-gray-700 hover:text-abc-lightblue">Team</a>
-                <a href="#gallery" class="block py-2 text-gray-700 hover:text-abc-lightblue">Gallery</a>
-<a href="login.html" class="block py-2 text-gray-700 hover:text-abc-lightblue">Login</a>
-<a href="#register" class="block bg-abc-blue text-white px-4 py-2 rounded-md mt-2 w-max">Register</a>
-</div>
-        </div>
-    </nav>
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center z-10 overflow-hidden">
-        <div class="absolute inset-0 bg-black/30 z-0"></div>
-        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-group-of-people-walking-in-a-meeting-room-2718-large.mp4" type="video/mp4">
-        </video>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6" data-aos="fade-up">ABC MUN 2026</h1>
-                <p class="text-xl md:text-2xl lg:text-3xl text-white mb-10" data-aos="fade-up" data-aos-delay="100">Shaping Future Leaders Through Diplomatic Discourse</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#register" class="bg-abc-blue hover:bg-abc-lightblue text-white px-8 py-4 rounded-md font-medium transition duration-300">Register Now</a>
-                            <a href="#about" class="border-2 border-white text-white hover:bg-white hover:text-abc-blue px-8 py-4 rounded-md font-medium transition duration-300">Learn More</a>
-</div>
-            </div>
-        </div>
-    </section>
-    <!-- About MUN Section -->
-<section id="about" class="py-20 bg-blue-50 relative z-10" data-aos="fade-up">
-<div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-abc-blue mb-4">About Model United Nations</h2>
-                <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
-            </div>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="http://static.photos/education/640x360/2" alt="MUN Conference" class="rounded-lg shadow-xl">
-                </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <p class="text-gray-700 mb-6">Model United Nations (MUN) is an educational simulation where students can learn about diplomacy, international relations, and the United Nations. Participants role-play as diplomats representing countries or NGOs in simulated UN committees.</p>
-                    <p class="text-gray-700 mb-6">At ABC Diplomatic Horizons MUN, we aim to provide an immersive experience that fosters critical thinking, public speaking, negotiation, and leadership skills.</p>
-                    <div class="flex items-center mb-4">
-                        <i data-feather="globe" class="text-abc-gold mr-3"></i>
-                        <span class="text-gray-700">Global Issues Discussion</span>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <i data-feather="users" class="text-abc-gold mr-3"></i>
-                        <span class="text-gray-700">Collaborative Problem Solving</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i data-feather="award" class="text-abc-gold mr-3"></i>
-                        <span class="text-gray-700">Leadership Development</span>
+            <div class="p-4">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="http://static.photos/people/200x200/8" alt="User" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="font-medium">John Doe</p>
+                        <p class="text-xs text-gray-500">Delegate</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Timeline Section -->
-    <section id="timeline" class="py-20 bg-gray-100 relative z-10" data-aos="fade-up">
-<div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-abc-blue mb-4">Conference Schedule</h2>
-                <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <div class="relative pl-12">
-                    <!-- Timeline Item 1 -->
-                    <div class="relative mb-12 timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-2">
-                                <div class="bg-abc-lightblue text-white px-3 py-1 rounded-full text-sm font-medium">Day 1</div>
-                                <span class="text-gray-500 ml-3">March 15, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-abc-blue mb-2">Opening Ceremony</h3>
-                            <p class="text-gray-700">Keynote speakers, introduction of committees, and official commencement of ABC Diplomatic Horizons MUN.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline Item 2 -->
-                    <div class="relative mb-12 timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-2">
-                                <div class="bg-abc-lightblue text-white px-3 py-1 rounded-full text-sm font-medium">Day 2</div>
-                                <span class="text-gray-500 ml-3">March 16, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-abc-blue mb-2">Committee Sessions</h3>
-                            <p class="text-gray-700">Full day of committee work including lobbying, resolution drafting, and moderated debates.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline Item 3 -->
-                    <div class="relative mb-12 timeline-item">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-2">
-                                <div class="bg-abc-lightblue text-white px-3 py-1 rounded-full text-sm font-medium">Day 3</div>
-                                <span class="text-gray-500 ml-3">March 17, 2024</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-abc-blue mb-2">Final Sessions & Closing</h3>
-                    <p class="text-gray-700">Resolution voting, awards ceremony, and final remarks from the secretariat.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-10">
-                    <a href="https://docs.google.com/spreadsheets/d/12345" target="_blank" class="bg-abc-blue hover:bg-abc-lightblue text-white px-6 py-3 rounded-md font-medium transition duration-300 inline-flex items-center">
-                        View Full Schedule <i data-feather="external-link" class="ml-2"></i>
+                
+                <nav class="space-y-1">
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md active-nav-item">
+                        <i data-feather="home" class="mr-3"></i>
+                        Dashboard
                     </a>
-                </div>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="clipboard" class="mr-3"></i>
+                        Committee
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="calendar" class="mr-3"></i>
+                        Schedule
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="file-text" class="mr-3"></i>
+                        Documents
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="users" class="mr-3"></i>
+                        Delegates
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="message-square" class="mr-3"></i>
+                        Messages
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100">
+                        <i data-feather="settings" class="mr-3"></i>
+                        Settings
+                    </a>
+                </nav>
             </div>
         </div>
-</section>
-    <!-- Committees Section -->
-    <section id="committees" class="py-20 bg-white relative z-10" data-aos="fade-up">
-<div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-abc-blue mb-4">Committees</h2>
-                <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Committee 1 -->
-                <div class="committee-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <img src="http://static.photos/office/640x360/1" alt="Security Council" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-abc-blue mb-2">UN Security Council</h3>
-                        <p class="text-gray-700 mb-4">Addressing international peace and security issues with 15 member states including 5 permanent members.</p>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i data-feather="user" class="mr-2"></i>
-                            <span>20 Delegates</span>
-                        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Header -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center">
+                        <h1 class="text-xl font-semibold text-gray-800"></h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-600 hover:text-gray-900">
+                            <i data-feather="bell"></i>
+                        </button>
+                        <button class="p-2 text-gray-600 hover:text-gray-900">
+                            <i data-feather="log-out"></i>
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Committee 2 -->
-                <div class="committee-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <img src="http://static.photos/technology/640x360/2" alt="WHO" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-abc-blue mb-2">World Health Organization</h3>
-                        <p class="text-gray-700 mb-4">Discussing global health crises and developing international health policies.</p>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i data-feather="user" class="mr-2"></i>
-                            <span>25 Delegates</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Committee 3 -->
-                <div class="committee-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                    <img src="http://static.photos/finance/640x360/3" alt="ECOSOC" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-abc-blue mb-2">Economic and Social Council</h3>
-                        <p class="text-gray-700 mb-4">Tackling global economic, social, and environmental challenges through international cooperation.</p>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i data-feather="user" class="mr-2"></i>
-                            <span>30 Delegates</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Team Section -->
-<section id="team" class="py-20 bg-blue-50 relative z-10" data-aos="fade-up">
-<div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-abc-blue mb-4">Our Team</h2>
-                <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
-                <p class="text-gray-700 max-w-2xl mx-auto mt-4">Meet the dedicated team behind ABC MUN</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cars-2 lg:grid-cols-3 gap-8">
-                <!-- Team Member 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <img src="http://static.photos/people/200x200/1" alt="Secretary General" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Ayla Mammadova</h3>
-                    <p class="text-abc-gold font-medium mb-4">Secretary General</p>
-                    <p class="text-gray-700">Overseeing all conference operations and ensuring smooth proceedings.</p>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <img src="http://static.photos/people/200x200/2" alt="Director General" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Ruslan Ismayilov</h3>
-                    <p class="text-abc-gold font-medium mb-4">Director General</p>
-                    <p class="text-gray-700">Managing committee directors and coordinating logistics.</p>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <img src="http://static.photos/people/200x200/3" alt="Chief of Staff" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Leyla Aliyeva</h3>
-                    <p class="text-abc-gold font-medium mb-4">Chief of Staff</p>
-                    <p class="text-gray-700">Leading the secretariat team and managing administrative tasks.</p>
-                </div>
-            </div>
-            
-            <!-- Committee Chairs Section -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-bold text-abc-blue mb-8 text-center">Committee Chairs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Chair 1 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                        <img src="http://static.photos/people/100x100/4" alt="UNSC Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-bold text-abc-blue">Tural Huseynov</h4>
-                            <p class="text-sm text-gray-600">UNSC Chair</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Chair 2 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                        <img src="http://static.photos/people/100x100/5" alt="WHO Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-bold text-abc-blue">Narmin Jafarova</h4>
-                            <p class="text-sm text-gray-600">WHO Chair</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Chair 3 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                        <img src="http://static.photos/people/100x100/6" alt="ECOSOC Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-bold text-abc-blue">Orkhan Ibrahimov</h4>
-                            <p class="text-sm text-gray-600">ECOSOC Chair</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Chair 4 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
-                        <img src="http://static.photos/people/100x100/7" alt="UNSC Co-Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-bold text-abc-blue">Aysel Mammadli</h4>
-                            <p class="text-sm text-gray-600">UNSC Co-Chair</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-       <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white relative z-10">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-abc-blue mb-4" data-aos="fade-up">Gallery</h2>
-                <div class="w-20 h-1 bg-abc-gold mx-auto" data-aos="fade-up"></div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in">
-                    <img src="http://static.photos/education/640x360/10" alt="Past MUN" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="http://static.photos/office/640x360/11" alt="Committee Session" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="http://static.photos/people/640x360/12" alt="Delegates" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in">
-                    <img src="http://static.photos/education/640x360/13" alt="Award Ceremony" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="http://static.photos/office/640x360/14" alt="Debating" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="http://static.photos/people/640x360/15" alt="Team Photo" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                </div>
-            </div>
-            <div class="text-center mt-10">
-                <a href="https://drive.google.com/drive/folders/12345" target="_blank" class="bg-abc-blue hover:bg-abc-lightblue text-white px-6 py-3 rounded-md font-medium transition duration-300 inline-flex items-center">
-                    View Full Gallery <i data-feather="external-link" class="ml-2"></i>
-                </a>
-            </div>
-        </div>
-</section>
-    <!-- Registration Section -->
-<section id="register" class="py-20 bg-blue-50 relative z-10" data-aos="fade-up">
-<div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Register for ABC MUN 2026</h2>
-                    <div class="w-20 h-1 bg-abc-gold mx-auto"></div>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-xl p-8 text-gray-800">
-                    <h3 class="text-2xl font-bold text-abc-blue mb-6">Registration Details</h3>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-bold text-abc-blue mb-4">Participation Fee</h4>
-                        <div class="bg-gray-100 p-4 rounded-lg">
-                            <div class="flex justify-between items-center mb-2">
-                                <span>Delegate Fee</span>
-                                <span class="font-bold">₼120</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span>Observer Fee</span>
-                                <span class="font-bold">₼80</span>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <!-- Status Card 1 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Committee</h3>
+                            <div class="p-2 rounded-full bg-blue-100 text-blue-600">
+                                <i data-feather="users"></i>
                             </div>
                         </div>
-                        <p class="text-gray-600 mt-3 text-sm">Fee includes conference materials, snacks, and certificate of participation.</p>
+                        <p class="text-2xl font-bold text-abc-blue mb-2">UN Security Council</p>
+                        <p class="text-sm text-gray-500">Representing: United States</p>
                     </div>
-                    
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" id="first-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
-                            </div>
-                            <div>
-                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" id="last-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
+
+                    <!-- Status Card 2 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Current Session</h3>
+                            <div class="p-2 rounded-full bg-green-100 text-green-600">
+                                <i data-feather="clock"></i>
                             </div>
                         </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
+                        <p class="text-2xl font-bold text-abc-blue mb-2">Resolution Drafting</p>
+                        <p class="text-sm text-gray-500">Room: A212</p>
+                    </div>
+
+                    <!-- Status Card 3 -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium text-gray-700">Next Session</h3>
+                            <div class="p-2 rounded-full bg-yellow-100 text-yellow-600">
+                                <i data-feather="calendar"></i>
+                            </div>
                         </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
-                        </div>
-                        
-                        <div>
-                            <label for="school" class="block text-sm font-medium text-gray-700 mb-1">School/University</label>
-                            <input type="text" id="school" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
-                        </div>
-                        
-                        <div>
-                            <label for="committee" class="block text-sm font-medium text-gray-700 mb-1">Preferred Committee</label>
-                            <select id="committee" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue">
-                                <option value="">Select a committee</option>
-                                <option value="unsc">UN Security Council</option>
-                                <option value="who">World Health Organization</option>
-                                <option value="ecosoc">Economic and Social Council</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Preferred Country Representation</label>
-                            <input type="text" id="country" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-abc-lightblue focus:border-abc-lightblue" placeholder="E.g., United States, France, China">
-                        </div>
-                        
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="checkbox" class="rounded border-gray-300 text-abc-lightblue focus:ring-abc-lightblue">
-                                <span class="ml-2 text-sm text-gray-700">I agree to the <a href="#" class="text-abc-lightblue hover:underline">terms and conditions</a></span>
-                            </label>
-                        </div>
-                        
-                        <div>
-                            <button type="submit" class="w-full bg-abc-blue hover:bg-abc-lightblue text-white font-bold py-3 px-4 rounded-md transition duration-300">Complete Registration</button>
-                        </div>
-                    </form>
+                        <p class="text-2xl font-bold text-abc-blue mb-2">Voting Procedure</p>
+                        <p class="text-sm text-gray-500">Tomorrow, 10:00 AM</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="bg-abc-blue text-white py-12 mt-auto">
-<div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">ABC MUN</h3>
-                    <p class="text-gray-300">Shaping future leaders through diplomatic discourse at Azerbaijan British College.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white">About</a></li>
-                        <li><a href="#timeline" class="text-gray-300 hover:text-white">Timeline</a></li>
-                        <li><a href="#committees" class="text-gray-300 hover:text-white">Committees</a></li>
-                        <li><a href="#gallery" class="text-gray-300 hover:text-white">Gallery</a></li>
-</ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <i data-feather="mail" class="mr-2"></i>
-                            <span class="text-gray-300">mun@abc.edu.az</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="phone" class="mr-2"></i>
-                            <span class="text-gray-300">+994 12 123 45 67</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="map-pin" class="mr-2"></i>
-                            <span class="text-gray-300">Azerbaijan British College, Baku</span>
+
+                <!-- Schedule Section -->
+                <div class="bg-white rounded-lg shadow mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold text-gray-800">Today's Schedule</h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="space-y-4">
+                            <!-- Schedule Item 1 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-blue-100 text-blue-600 rounded-full mr-4">
+                                    <i data-feather="clock" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Opening Remarks</h3>
+                                    <p class="text-sm text-gray-600">09:00 - 09:30 • Main Hall</p>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Item 2 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-purple-100 text-purple-600 rounded-full mr-4">
+                                    <i data-feather="users" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Committee Session</h3>
+                                    <p class="text-sm text-gray-600">09:30 - 11:30 • Room A212</p>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Item 3 -->
+                            <div class="flex items-start">
+                                <div class="p-2 bg-green-100 text-green-600 rounded-full mr-4">
+                                    <i data-feather="coffee" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-medium text-gray-800">Coffee Break</h3>
+                                    <p class="text-sm text-gray-600">11:30 - 12:00 • Lobby</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i data-feather="twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white">
-                            <i data-feather="linkedin"></i>
-                        </a>
+
+                <!-- Documents Section -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold text-gray-800">Important Documents</h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Document 1 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-red-100 text-red-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Background Guide</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Essential reading for all delegates</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+
+                            <!-- Document 2 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-blue-100 text-blue-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Draft Resolution</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Current working document</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+
+                            <!-- Document 3 -->
+                            <div class="border rounded-lg p-4 hover:shadow-md transition">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 bg-green-100 text-green-600 rounded-full mr-3">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                    <h3 class="font-medium">Rules of Procedure</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">MUN parliamentary procedures</p>
+                                <button class="text-sm text-abc-lightblue hover:text-abc-blue">Download</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>©2025 ABC MUN. All rights reserved.</p>
-            </div>
+            </main>
         </div>
-    </footer>
+    </div>
+
     <script>
-        // Smooth scroll to section with requestAnimationFrame for 60fps
-        function smoothScrollTo(target) {
-            const element = document.querySelector(target);
-            if (!element) return;
-            
-            const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition;
-            const duration = 800; // ms
-            let startTime = null;
-
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-                const run = ease(timeElapsed, startPosition, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-
-            // Easing function for smooth acceleration/deceleration
-            function ease(t, b, c, d) {
-                t /= d/2;
-                if (t < 1) return c/2*t*t*t + b;
-                t -= 2;
-                return c/2*(t*t*t + 2) + b;
-            }
-
-            requestAnimationFrame(animation);
-        }
-
-        // Add smooth scroll to all nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = this.getAttribute('href');
-                if (target === '#') return;
-                smoothScrollTo(target);
-            // Force hardware acceleration for smoother animations
-            document.querySelectorAll('[data-aos]').forEach(el => {
-                el.style.willChange = 'transform, opacity';
-            });
-        });
-
-        // Enable passive event listeners for better scrolling performance
-        document.addEventListener('touchmove', function() {}, { passive: true });
-});
-
-        // Navigation scroll behavior
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-        const nav = document.getElementById('main-nav');
-
-        function updateNav() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling down - hide nav
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up or at top - show nav
-                nav.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateNav);
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // Initialize Vanta.js background
-        VANTA.NET({
-el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x006699,
-            backgroundColor: 0xf8fafc,
-            points: 10.00,
-            maxDistance: 20.00,
-            spacing: 15.00
-        });
-        // Ensure nav is visible when menu is open
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            nav.style.transform = 'translateY(0)';
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking on a link and ensure nav stays visible
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (link.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const target = link.getAttribute('href');
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                    smoothScrollTo(target);
-                } else {
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-                nav.style.transform = 'translateY(0)';
-            });
-        });
         // Feather icons
         feather.replace();
-        
-        // Reset nav position when reaching top
-        window.addEventListener('scroll', () => {
-            if (window.scrollY <= 100) {
-                nav.style.transform = 'translateY(0)';
-            }
-        }, { passive: true });
 
-        // Initialize AOS animation with optimized settings
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out-quart',
-                once: true,
-                offset: 100,
-                disable: window.innerWidth < 768 // Disable on mobile for performance
+        // Toggle sidebar on mobile
+        document.querySelector('[data-feather="menu"]').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+        });
+
+        // Set active nav item
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(i => i.classList.remove('active-nav-item'));
+                this.classList.add('active-nav-item');
             });
-});
+        });
     </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
