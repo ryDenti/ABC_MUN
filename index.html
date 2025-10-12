@@ -78,25 +78,26 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Vanta.js Background -->
+<body class="bg-gray-50 flex flex-col min-h-screen" style="min-height: 100vh;">
+<!-- Vanta.js Background -->
     <div id="vanta-bg" class="fixed w-full h-full z-0"></div>
-
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white header-shadow">
-        <div class="container mx-auto px-6 py-4">
+    <nav id="main-nav" class="fixed w-full z-50 bg-white header-shadow transform transition-transform duration-300 ease-out" style="will-change: transform;">
+<div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <a href="#home"><img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/abclogo2.png" alt="ABC Logo" class="h-12"></a>
-                </div>
+                    <a href="#home"><img src="https://huggingface.co/spaces/carti07/abc-diplomatic-horizons-mun/resolve/main/images/cikqDlr.png.webp" alt="ABC Logo" class="h-12"></a>
+</div>
 <div class="hidden md:flex items-center space-x-8">
-<a href="#about" class="text-gray-700 hover:text-abc-lightblue font-medium">About</a>
-                    <a href="#timeline" class="text-gray-700 hover:text-abc-lightblue font-medium">Schedule</a>
-                    <a href="#committees" class="text-gray-700 hover:text-abc-lightblue font-medium">Committees</a>
-                    <a href="#team" class="text-gray-700 hover:text-abc-lightblue font-medium">Team</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-abc-lightblue font-medium">Gallery</a>
-<a href="#register" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue transition duration-300">Register</a>
-                </div>
+    <a href="#about" class="text-gray-700 hover:text-abc-lightblue font-medium">About</a>
+    <a href="#timeline" class="text-gray-700 hover:text-abc-lightblue font-medium">Schedule</a>
+    <a href="#committees" class="text-gray-700 hover:text-abc-lightblue font-medium">Committees</a>
+    <a href="#team" class="text-gray-700 hover:text-abc-lightblue font-medium">Team</a>
+    <a href="#gallery" class="text-gray-700 hover:text-abc-lightblue font-medium">Gallery</a>
+    <a href="#register" class="bg-abc-blue text-white px-4 py-2 rounded-md hover:bg-abc-lightblue hover:scale-105 transition duration-300 transform">Register</a>
+                    <a href="login.html" class="text-gray-700 hover:bg-abc-blue hover:scale-105 px-4 py-2 rounded-md transition duration-300">Login</a>
+                    <a href="dashboard.html" class="text-gray-700 hover:bg-abc-blue hover:scale-105 px-4 py-2 rounded-md transition duration-300">Dashboard</a>
+</div>
                 <div class="md:hidden">
                     <button id="menu-btn" class="text-gray-700 focus:outline-none">
                         <i data-feather="menu"></i>
@@ -110,8 +111,10 @@
                 <a href="#committees" class="block py-2 text-gray-700 hover:text-abc-lightblue">Committees</a>
                 <a href="#team" class="block py-2 text-gray-700 hover:text-abc-lightblue">Team</a>
                 <a href="#gallery" class="block py-2 text-gray-700 hover:text-abc-lightblue">Gallery</a>
+<a href="login.html" class="block py-2 text-gray-700 hover:text-abc-lightblue">Login</a>
+<a href="dashboard.html" class="block py-2 text-gray-700 hover:text-abc-lightblue">Dashboard</a>
 <a href="#register" class="block bg-abc-blue text-white px-4 py-2 rounded-md mt-2 w-max">Register</a>
-            </div>
+</div>
         </div>
     </nav>
     <!-- Hero Section -->
@@ -144,7 +147,7 @@
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <p class="text-gray-700 mb-6">Model United Nations (MUN) is an educational simulation where students can learn about diplomacy, international relations, and the United Nations. Participants role-play as diplomats representing countries or NGOs in simulated UN committees.</p>
-                    <p class="text-gray-700 mb-6">At ABC MUN, we aim to provide an immersive experience that fosters critical thinking, public speaking, negotiation, and leadership skills.</p>
+                    <p class="text-gray-700 mb-6">At ABC Diplomatic Horizons MUN, we aim to provide an immersive experience that fosters critical thinking, public speaking, negotiation, and leadership skills.</p>
                     <div class="flex items-center mb-4">
                         <i data-feather="globe" class="text-abc-gold mr-3"></i>
                         <span class="text-gray-700">Global Issues Discussion</span>
@@ -275,7 +278,7 @@
                 <!-- Team Member 1 -->
                 <div class="bg-white p-6 rounded-lg shadow-md text-center">
                     <img src="http://static.photos/people/200x200/1" alt="Secretary General" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Random</h3>
+                    <h3 class="text-xl font-bold text-abc-blue mb-1">Ayla Mammadova</h3>
                     <p class="text-abc-gold font-medium mb-4">Secretary General</p>
                     <p class="text-gray-700">Overseeing all conference operations and ensuring smooth proceedings.</p>
                 </div>
@@ -283,7 +286,7 @@
                 <!-- Team Member 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-md text-center">
                     <img src="http://static.photos/people/200x200/2" alt="Director General" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Random</h3>
+                    <h3 class="text-xl font-bold text-abc-blue mb-1">Ruslan Ismayilov</h3>
                     <p class="text-abc-gold font-medium mb-4">Director General</p>
                     <p class="text-gray-700">Managing committee directors and coordinating logistics.</p>
                 </div>
@@ -291,7 +294,7 @@
                 <!-- Team Member 3 -->
                 <div class="bg-white p-6 rounded-lg shadow-md text-center">
                     <img src="http://static.photos/people/200x200/3" alt="Chief of Staff" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-xl font-bold text-abc-blue mb-1">Random</h3>
+                    <h3 class="text-xl font-bold text-abc-blue mb-1">Leyla Aliyeva</h3>
                     <p class="text-abc-gold font-medium mb-4">Chief of Staff</p>
                     <p class="text-gray-700">Leading the secretariat team and managing administrative tasks.</p>
                 </div>
@@ -305,7 +308,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
                         <img src="http://static.photos/people/100x100/4" alt="UNSC Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-bold text-abc-blue">Random</h4>
+                            <h4 class="font-bold text-abc-blue">Tural Huseynov</h4>
                             <p class="text-sm text-gray-600">UNSC Chair</p>
                         </div>
                     </div>
@@ -314,7 +317,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
                         <img src="http://static.photos/people/100x100/5" alt="WHO Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-bold text-abc-blue">Random</h4>
+                            <h4 class="font-bold text-abc-blue">Narmin Jafarova</h4>
                             <p class="text-sm text-gray-600">WHO Chair</p>
                         </div>
                     </div>
@@ -323,7 +326,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
                         <img src="http://static.photos/people/100x100/6" alt="ECOSOC Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-bold text-abc-blue">Random</h4>
+                            <h4 class="font-bold text-abc-blue">Orkhan Ibrahimov</h4>
                             <p class="text-sm text-gray-600">ECOSOC Chair</p>
                         </div>
                     </div>
@@ -332,7 +335,7 @@
                     <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
                         <img src="http://static.photos/people/100x100/7" alt="UNSC Co-Chair" class="w-16 h-16 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-bold text-abc-blue">Random</h4>
+                            <h4 class="font-bold text-abc-blue">Aysel Mammadli</h4>
                             <p class="text-sm text-gray-600">UNSC Co-Chair</p>
                         </div>
                     </div>
@@ -458,10 +461,9 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
-    <footer class="bg-abc-blue text-white py-12 relative z-10">
-        <div class="container mx-auto px-6">
+    <footer class="bg-abc-blue text-white py-12 mt-auto w-full">
+<div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">ABC MUN</h3>
@@ -521,10 +523,73 @@
             </div>
         </div>
     </footer>
-
     <script>
-        // Initialize Vanta.js background
-        VANTA.NET({
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+                
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 800;
+                let startTime = null;
+                
+                function animation(currentTime) {
+                    if (!startTime) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+                
+                function ease(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t*t + b;
+                    t -= 2;
+                    return c/2*(t*t*t + 2) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            });
+        });
+
+        // Navigation scroll behavior
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const nav = document.getElementById('main-nav');
+
+        function updateNav() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down - hide nav
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up or at top - show nav
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNav);
+                ticking = true;
+            }
+        }, { passive: true });
+// Initialize Vanta.js background
+VANTA.NET({
             el: "#vanta-bg",
             mouseControls: true,
             touchControls: true,
@@ -539,23 +604,38 @@
             maxDistance: 20.00,
             spacing: 15.00
         });
-
-        // Mobile menu toggle
+        // Ensure nav is visible when menu is open
         document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            nav.style.transform = 'translateY(0)';
         });
 
-        // Close mobile menu when clicking on a link
+        // Mobile menu toggle
+document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Close mobile menu when clicking on a link and ensure nav stays visible
         document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                nav.style.transform = 'translateY(0)';
+            });
+        });
+document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
         // Feather icons
         feather.replace();
+        // Reset nav position when reaching top
+        window.addEventListener('scroll', () => {
+            if (window.scrollY <= 100) {
+                nav.style.transform = 'translateY(0)';
+            }
+        }, { passive: true });
 
         // Initialize AOS animation
-        document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 duration: 800,
                 easing: 'ease-in-out',
@@ -566,4 +646,16 @@
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
+<style>
+    html, body {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    main {
+        flex: 1;
+    }
+</style>
 </html>
