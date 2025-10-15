@@ -651,17 +651,38 @@
         if (!user) return null;
         const { data, error } = await supabase
           .from('profiles')
-          .select('user_id,name,surname,phone_number,is_admin,assigned_country')
+          .select('user_id,name,surname,phone_number,is_admin,assigned_country,committee')
           .eq('user_id', user.id)
           .single();
-        if (!error && data) return data;
+        if (!error && data) {
+          // If profile exists but missing country, force assignment
+          if (!data.assigned_country) {
+            try { await supabase.rpc('assign_random_country', { p_user: user.id }); } catch(_) {}
+          }
+          // If committee missing but present in metadata, update via create_profile (idempotent upsert)
+          if (!data.committee && user.user_metadata?.committee) {
+            try {
+              await supabase.rpc('create_profile', {
+                p_user_id: user.id,
+                p_name: data.name,
+                p_surname: data.surname,
+                p_phone: data.phone_number || '',
+                p_committee: user.user_metadata.committee
+              });
+            } catch(_) {}
+          }
+          const refreshed = await supabase
+            .from('profiles').select('user_id,name,surname,phone_number,is_admin,assigned_country,committee').eq('user_id', user.id).single();
+          return refreshed.data || data;
+        }
         // Attempt to create from auth metadata via RPC if not exists
         const md = user.user_metadata || {};
         const { data: created, error: createErr } = await supabase.rpc('create_profile', {
           p_user_id: user.id,
           p_name: md.name || 'Delegate',
           p_surname: md.surname || 'User',
-          p_phone: md.phone_number || ''
+          p_phone: md.phone_number || '',
+          p_committee: md.committee || null
         });
         if (createErr) return null;
         return created;
@@ -676,7 +697,7 @@
           const flag = countryFlagEmoji(currentProfile.assigned_country);
           document.getElementById('welcome-title').textContent = `Welcome ${currentProfile.name}`;
           sum.textContent = `${currentProfile.name} ${currentProfile.surname} — Country: ${flag} ${currentProfile.assigned_country || 'Assigning...'}`;
-          document.getElementById('card-committee').textContent = currentProfile.assigned_country ? `${currentProfile.assigned_country} Delegate` : 'Assigning...';
+          document.getElementById('card-committee').textContent = currentProfile.committee || '—';
         }
 
         // Tabs
