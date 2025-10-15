@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ABC MUN — Azerbaijan British College Model United Nations</title>
+    <meta name="description" content="ABC MUN — Azerbaijan British College Model United Nations" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind config (using ABC palette sampled from abc.edu.az style)
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              abc: {
+                blue: '#004A99', // primary blue
+                light: '#E6F0FA', // light blue bg
+                accent: '#FFB703', // warm accent
+                dark: '#0A1F33', // deep navy
+              },
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(0, 74, 153, 0.35)',
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* High-FPS friendly animation utilities */
+      .will-transform { will-change: transform, opacity; }
+      .tilt-3d {
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+      .floating {
+        animation: floatY 6s ease-in-out infinite;
+      }
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+      }
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+      .revealed { opacity: 1; transform: translateY(0); }
+    </style>
+
+    <!-- Supabase JS v2 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body class="bg-white text-abc-dark selection:bg-abc-blue selection:text-white">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur border-b border-abc-light">
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="/" data-link class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded bg-abc-blue text-white grid place-items-center font-bold shadow-glow">A</div>
+          <span class="font-semibold tracking-wide">ABC&nbsp;MUN</span>
+        </a>
+        <div class="flex items-center gap-2" id="nav-actions">
+          <!-- Filled dynamically -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main container for SPA routes -->
+    <main class="pt-20">
+      <!-- Home Route: / -->
+      <section id="route-home" class="route hidden">
+        <!-- Hero -->
+        <section class="relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-b from-abc-light to-white"></div>
+          <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+              <div class="reveal">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-abc-dark leading-tight">
+                  Azerbaijan British College <span class="text-abc-blue">Model United Nations</span>
+                </h1>
+                <p class="mt-4 text-abc-dark/70 text-lg">
+                  Experience diplomacy, debate, and global collaboration at ABC MUN.
+                </p>
+                <div class="mt-8 flex gap-3">
+                  <a href="/register" data-link class="px-5 py-3 bg-abc-blue text-white rounded-md shadow hover:shadow-lg transition will-transform">Register</a>
+                  <a href="#about" class="px-5 py-3 border border-abc-blue text-abc-blue rounded-md hover:bg-abc-light transition will-transform">Learn more</a>
+                </div>
+              </div>
+              <div class="reveal tilt-3d relative">
+                <div class="aspect-square rounded-xl bg-white shadow-xl border border-abc-light p-6 relative">
+                  <div id="hero-globe" class="absolute inset-0 will-transform"></div>
+                  <!-- Floating badges -->
+                  <div class="absolute -top-3 -left-3 bg-abc-blue text-white text-sm px-3 py-1 rounded-full floating shadow-glow">PLACEHOLDER_HERE</div>
+                  <div class="absolute -bottom-3 -right-3 bg-abc-accent text-abc-dark text-sm px-3 py-1 rounded-full floating" style="animation-delay:1s">Global Dialogue</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+          <h2 class="text-2xl font-semibold text-abc-dark">About ABC MUN</h2>
+          <p class="mt-4 text-abc-dark/70">
+            ABC MUN brings together passionate students to debate pressing global issues in a respectful, academic environment at the Azerbaijan British College.
+          </p>
+        </section>
+
+        <!-- Committees -->
+        <section id="committees" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+          <h2 class="text-2xl font-semibold text-abc-dark">Committees</h2>
+          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+              <h3 class="font-semibold">UN Security Council</h3>
+              <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
+            </div>
+            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+              <h3 class="font-semibold">WHO</h3>
+              <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
+            </div>
+            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+              <h3 class="font-semibold">UNICEF</h3>
+              <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Timeline -->
+        <section id="timeline" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+          <h2 class="text-2xl font-semibold text-abc-dark">Timeline</h2>
+          <ol class="mt-6 relative border-l border-abc-light pl-6 space-y-6">
+            <li>
+              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-blue"></div>
+              <div class="text-abc-dark"><span class="font-semibold">Registration Opens</span> — PLACEHOLDER_HERE</div>
+            </li>
+            <li>
+              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-accent"></div>
+              <div class="text-abc-dark"><span class="font-semibold">Position Papers Due</span> — PLACEHOLDER_HERE</div>
+            </li>
+            <li>
+              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-blue"></div>
+              <div class="text-abc-dark"><span class="font-semibold">Conference Day</span> — PLACEHOLDER_HERE</div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Our Team -->
+        <section id="team" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+          <h2 class="text-2xl font-semibold text-abc-dark">Our Team</h2>
+          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
+              <div>
+                <div class="font-semibold">PLACEHOLDER_HERE</div>
+                <div class="text-sm text-abc-dark/70">Secretary-General</div>
+              </div>
+            </div>
+            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
+              <div>
+                <div class="font-semibold">PLACEHOLDER_HERE</div>
+                <div class="text-sm text-abc-dark/70">Deputy Secretary-General</div>
+              </div>
+            </div>
+            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
+              <div>
+                <div class="font-semibold">PLACEHOLDER_HERE</div>
+                <div class="text-sm text-abc-dark/70">Conference Manager</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+          <h2 class="text-2xl font-semibold text-abc-dark">Gallery</h2>
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-abc-light">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-sm text-abc-dark/70">© <span id="year"></span> ABC MUN</div>
+            <div class="text-sm text-abc-dark/70">Contact: PLACEHOLDER_HERE</div>
+          </div>
+        </footer>
+      </section>
+
+      <!-- Register Route: /register -->
+      <section id="route-register" class="route hidden">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 class="text-2xl font-semibold text-abc-dark">Register</h2>
+          <p class="text-abc-dark/70 text-sm mt-1">Verify your email to activate your account.</p>
+          <form id="register-form" class="mt-6 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-sm mb-1">Name</label>
+                <input name="name" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Surname</label>
+                <input name="surname" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Email</label>
+              <input type="email" name="email" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Number</label>
+              <input name="phone_number" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Password</label>
+              <input type="password" name="password" required minlength="6" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+            </div>
+            <button class="w-full bg-abc-blue text-white rounded-md px-4 py-2 hover:opacity-90">Create Account</button>
+            <p id="register-msg" class="text-sm text-abc-dark/70"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Login Route: /login -->
+      <section id="route-login" class="route hidden">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 class="text-2xl font-semibold text-abc-dark">Login</h2>
+          <form id="login-form" class="mt-6 space-y-4">
+            <div>
+              <label class="block text-sm mb-1">Email</label>
+              <input type="email" name="email" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+            </div>
+            <div>
+              <label class="block text-sm mb-1">Password</label>
+              <input type="password" name="password" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
+            </div>
+            <button class="w-full bg-abc-blue text-white rounded-md px-4 py-2 hover:opacity-90">Sign In</button>
+            <p id="login-msg" class="text-sm text-abc-dark/70"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Member Dashboard: /dashboard -->
+      <section id="route-dashboard" class="route hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 class="text-2xl font-semibold">Member Dashboard</h2>
+          <div id="profile-summary" class="mt-2 text-abc-dark/70 text-sm"></div>
+          <div class="mt-6 border-b border-abc-light flex gap-6" role="tablist">
+            <button data-tab="upload" class="tab-btn border-b-2 border-transparent py-2 px-1">Upload Files</button>
+            <button data-tab="messages" class="tab-btn border-b-2 border-transparent py-2 px-1">Messaging</button>
+            <button data-tab="notifications" class="tab-btn border-b-2 border-transparent py-2 px-1">Notifications</button>
+          </div>
+
+          <!-- Upload Tab -->
+          <div data-panel="upload" class="tab-panel mt-6 hidden">
+            <form id="upload-form" class="flex flex-col sm:flex-row items-start gap-3">
+              <input type="file" id="file-input" class="block" />
+              <button class="bg-abc-blue text-white rounded-md px-4 py-2">Upload</button>
+              <span id="upload-msg" class="text-sm text-abc-dark/70"></span>
+            </form>
+            <div class="mt-4" id="docs-list"></div>
+          </div>
+
+          <!-- Messages Tab -->
+          <div data-panel="messages" class="tab-panel mt-6 hidden">
+            <form id="message-form" class="flex flex-col sm:flex-row items-stretch gap-3">
+              <select id="country-select" class="border rounded-md px-3 py-2 min-w-[220px]"></select>
+              <input id="message-input" class="border rounded-md px-3 py-2 flex-1" placeholder="Type a private message..." />
+              <button class="bg-abc-blue text-white rounded-md px-4 py-2">Send</button>
+            </form>
+            <div id="messages-thread" class="mt-4 space-y-3"></div>
+          </div>
+
+          <!-- Notifications Tab -->
+          <div data-panel="notifications" class="tab-panel mt-6 hidden">
+            <div id="notifications-list" class="space-y-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admin Dashboard: /admin-dashboard -->
+      <section id="route-admin" class="route hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h2 class="text-2xl font-semibold">Admin Dashboard</h2>
+          <p class="text-sm text-abc-dark/70">Only accessible to the admin.</p>
+
+          <!-- Global Notifications -->
+          <div class="mt-8">
+            <h3 class="font-semibold">Send Global Notification</h3>
+            <form id="admin-notify-form" class="mt-3 flex flex-col sm:flex-row gap-3">
+              <input id="admin-notify-input" class="border rounded-md px-3 py-2 flex-1" placeholder="Announcement to all members" />
+              <button class="bg-abc-accent text-abc-dark rounded-md px-4 py-2">Send</button>
+              <span id="admin-notify-msg" class="text-sm text-abc-dark/70"></span>
+            </form>
+          </div>
+
+          <!-- Documents Overview -->
+          <div class="mt-10">
+            <h3 class="font-semibold">All Uploaded Documents</h3>
+            <div id="admin-docs" class="mt-3 border border-abc-light rounded-md overflow-hidden"></div>
+          </div>
+
+          <!-- Country Management -->
+          <div class="mt-10">
+            <h3 class="font-semibold">Country Management</h3>
+            <div id="admin-countries" class="mt-3 border border-abc-light rounded-md overflow-hidden"></div>
+            <p id="admin-country-msg" class="text-sm text-abc-dark/70 mt-2"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // ====== Config ======
+      const SUPABASE_URL = 'SUPABASE_URL_HERE';
+      const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_HERE';
+      const ADMIN_EMAIL = 'admin@abc.edu.az';
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      // ====== Simple Router ======
+      const routes = {
+        '/': 'route-home',
+        '/register': 'route-register',
+        '/login': 'route-login',
+        '/dashboard': 'route-dashboard',
+        '/admin-dashboard': 'route-admin',
+      };
+
+      function setActiveRoute(pathname) {
+        Object.values(routes).forEach(id => document.getElementById(id).classList.add('hidden'));
+        const id = routes[pathname] || routes['/'];
+        document.getElementById(id).classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function navigate(pathname) {
+        window.history.pushState({}, '', pathname);
+        setActiveRoute(pathname);
+        refreshNav();
+        // Load route data
+        if (pathname === '/dashboard') initDashboard();
+        if (pathname === '/admin-dashboard') initAdmin();
+      }
+
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('[data-link]');
+        if (link && link.getAttribute('href').startsWith('/')) {
+          e.preventDefault();
+          navigate(link.getAttribute('href'));
+        }
+      });
+      window.addEventListener('popstate', () => setActiveRoute(location.pathname));
+
+      // ====== Navbar state ======
+      async function refreshNav() {
+        const actions = document.getElementById('nav-actions');
+        actions.innerHTML = '';
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          actions.innerHTML = `
+            <a href="/register" data-link class="px-3 py-2 rounded-md border border-abc-blue text-abc-blue hover:bg-abc-light">Register</a>
+            <a href="/login" data-link class="px-3 py-2 rounded-md bg-abc-blue text-white">Login</a>
+          `;
+        } else {
+          const btn = document.createElement('button');
+          btn.className = 'w-9 h-9 rounded-full bg-abc-blue text-white grid place-items-center';
+          btn.textContent = (user.email || 'U').slice(0, 1).toUpperCase();
+          btn.addEventListener('click', () => {
+            navigate('/dashboard');
+          });
+          actions.appendChild(btn);
+        }
+      }
+
+      // ====== Hero 3D Animation ======
+      function initHero() {
+        const globe = document.getElementById('hero-globe');
+        if (!globe) return;
+        const canvas = document.createElement('canvas');
+        globe.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        function resize() {
+          const rect = globe.getBoundingClientRect();
+          canvas.width = rect.width; canvas.height = rect.height;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        let t = 0;
+        function draw() {
+          const { width: w, height: h } = canvas;
+          ctx.clearRect(0, 0, w, h);
+          ctx.save();
+          ctx.translate(w/2, h/2);
+          const r = Math.min(w, h) * 0.32;
+          // sphere
+          const grd = ctx.createRadialGradient(-r*0.3, -r*0.3, r*0.2, 0, 0, r*1.2);
+          grd.addColorStop(0, 'rgba(230,240,250,1)');
+          grd.addColorStop(1, 'rgba(0,74,153,0.35)');
+          ctx.fillStyle = grd;
+          ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI*2); ctx.fill();
+          // meridians
+          ctx.strokeStyle = 'rgba(10,31,51,0.25)';
+          for (let i=0;i<12;i++) {
+            ctx.beginPath();
+            const phase = t*0.002 + i*0.5;
+            for (let a=-Math.PI/2; a<=Math.PI/2; a+=0.1) {
+              const x = r*Math.cos(a)*Math.cos(phase);
+              const y = r*Math.sin(a);
+              if (a===-Math.PI/2) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+            }
+            ctx.stroke();
+          }
+          ctx.restore();
+          t += 16; // ~60fps time units; small values keep it smooth at high refresh
+          requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+      }
+
+      // ====== Scroll reveal ======
+      function initReveal() {
+        const obs = new IntersectionObserver((entries) => {
+          for (const e of entries) if (e.isIntersecting) e.target.classList.add('revealed');
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      }
+
+      // ====== Auth forms ======
+      function initAuthForms() {
+        const reg = document.getElementById('register-form');
+        if (reg) reg.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const fd = new FormData(reg);
+          const email = fd.get('email');
+          const password = fd.get('password');
+          const name = fd.get('name');
+          const surname = fd.get('surname');
+          const phone_number = fd.get('phone_number');
+          const { error } = await supabase.auth.signUp({
+            email, password,
+            options: {
+              emailRedirectTo: window.location.origin + '/login',
+              data: { name, surname, phone_number },
+            },
+          });
+          const msg = document.getElementById('register-msg');
+          if (error) msg.textContent = 'Error: ' + error.message;
+          else msg.textContent = 'Success! Please check your email to verify your account.';
+        });
+
+        const login = document.getElementById('login-form');
+        if (login) login.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const fd = new FormData(login);
+          const email = fd.get('email');
+          const password = fd.get('password');
+          const { error } = await supabase.auth.signInWithPassword({ email, password });
+          const msg = document.getElementById('login-msg');
+          if (error) msg.textContent = 'Error: ' + error.message;
+          else navigate('/dashboard');
+        });
+      }
+
+      // ====== Dashboard ======
+      let currentProfile = null;
+      async function ensureProfile() {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return null;
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('user_id,name,surname,phone_number,is_admin,assigned_country')
+          .eq('user_id', user.id)
+          .single();
+        if (!error && data) return data;
+        // Attempt to create from auth metadata via RPC if not exists
+        const md = user.user_metadata || {};
+        const { data: created, error: createErr } = await supabase.rpc('create_profile', {
+          p_user_id: user.id,
+          p_name: md.name || 'Delegate',
+          p_surname: md.surname || 'User',
+          p_phone: md.phone_number || ''
+        });
+        if (createErr) return null;
+        return created;
+      }
+
+      async function initDashboard() {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) { navigate('/login'); return; }
+        currentProfile = await ensureProfile();
+        const sum = document.getElementById('profile-summary');
+        if (currentProfile) {
+          sum.textContent = `${currentProfile.name} ${currentProfile.surname} — Country: ${currentProfile.assigned_country || 'Assigning...'}`;
+        }
+
+        // Tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.addEventListener('click', () => selectTab(btn.dataset.tab));
+        });
+        selectTab('upload');
+
+        await loadDocuments();
+        await setupMessaging();
+        await loadNotifications();
+      }
+
+      function selectTab(key) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('border-abc-blue', b.dataset.tab===key));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('hidden', p.dataset.panel!==key));
+      }
+
+      // Uploads
+      async function loadDocuments() {
+        const list = document.getElementById('docs-list');
+        list.innerHTML = '';
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data, error } = await supabase
+          .from('documents')
+          .select('id,file_name,file_url,created_at')
+          .eq('user_id', user.id)
+          .order('created_at', { ascending: false });
+        if (error) return;
+        data.forEach(d => {
+          const a = document.createElement('a');
+          a.href = d.file_url; a.target = '_blank'; a.className = 'block text-abc-blue underline';
+          a.textContent = `${d.file_name} (${new Date(d.created_at).toLocaleString()})`;
+          list.appendChild(a);
+        });
+        const form = document.getElementById('upload-form');
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const file = document.getElementById('file-input').files[0];
+          const msg = document.getElementById('upload-msg');
+          if (!file) { msg.textContent = 'Choose a file first.'; return; }
+          const path = `${user.id}/${Date.now()}_${file.name}`;
+          const { error: upErr } = await supabase.storage.from('documents').upload(path, file, { upsert: false });
+          if (upErr) { msg.textContent = 'Upload error: ' + upErr.message; return; }
+          const { data: pub } = supabase.storage.from('documents').getPublicUrl(path);
+          await supabase.from('documents').insert({ user_id: user.id, file_name: file.name, file_url: pub.publicUrl });
+          msg.textContent = 'Uploaded!';
+          await loadDocuments();
+        };
+      }
+
+      // Messaging
+      let msgSubscription = null;
+      async function setupMessaging() {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user || !currentProfile) return;
+        // Populate country dropdown (exclude own)
+        const sel = document.getElementById('country-select');
+        sel.innerHTML = '';
+        const { data: countries } = await supabase
+          .from('countries')
+          .select('name,assigned_user')
+          .not('assigned_user', 'is', null);
+        (countries || []).filter(c => c.name !== currentProfile.assigned_country).forEach(c => {
+          const opt = document.createElement('option'); opt.value = c.name; opt.textContent = c.name; sel.appendChild(opt);
+        });
+
+        const form = document.getElementById('message-form');
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const country = sel.value; const content = document.getElementById('message-input').value.trim();
+          if (!country || !content) return;
+          const { data: target } = await supabase.from('countries').select('assigned_user').eq('name', country).single();
+          if (!target || !target.assigned_user) return;
+          await supabase.from('messages').insert({
+            sender_user_id: user.id,
+            recipient_user_id: target.assigned_user,
+            sender_country: currentProfile.assigned_country,
+            recipient_country: country,
+            content,
+          });
+          document.getElementById('message-input').value = '';
+          await loadThread();
+        };
+
+        // Subscribe to incoming messages
+        if (msgSubscription) supabase.removeChannel(msgSubscription);
+        msgSubscription = supabase
+          .channel('messages-thread')
+          .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages', filter: `recipient_user_id=eq.${user.id}` }, loadThread)
+          .subscribe();
+        await loadThread();
+      }
+
+      async function loadThread() {
+        const { data: { user } } = await supabase.auth.getUser();
+        const box = document.getElementById('messages-thread');
+        box.innerHTML = '';
+        if (!user) return;
+        const { data, error } = await supabase
+          .from('messages')
+          .select('id,content,created_at,sender_country,recipient_country,sender_user_id,recipient_user_id')
+          .or(`sender_user_id.eq.${user.id},recipient_user_id.eq.${user.id}`)
+          .order('created_at', { ascending: true });
+        if (error) return;
+        (data || []).forEach(m => {
+          const mine = m.sender_user_id === user.id;
+          const div = document.createElement('div');
+          div.className = `p-3 rounded-md border ${mine ? 'bg-abc-light border-abc-blue ml-auto max-w-[80%]' : 'bg-white border-abc-light max-w-[80%]'}`;
+          div.innerHTML = `<div class="text-xs text-abc-dark/60 mb-1">${m.sender_country} → ${m.recipient_country}</div>${m.content}`;
+          box.appendChild(div);
+        });
+        box.scrollTop = box.scrollHeight;
+      }
+
+      // Notifications
+      let notifSubscription = null;
+      async function loadNotifications() {
+        const list = document.getElementById('notifications-list');
+        list.innerHTML = '';
+        const { data, error } = await supabase
+          .from('notifications')
+          .select('id,content,created_at')
+          .order('created_at', { ascending: false });
+        if (!error) (data||[]).forEach(n => {
+          const div = document.createElement('div');
+          div.className = 'p-3 border border-abc-light rounded-md';
+          div.innerHTML = `<div class="text-xs text-abc-dark/60">${new Date(n.created_at).toLocaleString()}</div><div>${n.content}</div>`;
+          list.appendChild(div);
+        });
+        if (notifSubscription) supabase.removeChannel(notifSubscription);
+        notifSubscription = supabase
+          .channel('notifications-feed')
+          .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'notifications' }, loadNotifications)
+          .subscribe();
+      }
+
+      // ====== Admin ======
+      async function initAdmin() {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user || (user.email||'').toLowerCase() !== ADMIN_EMAIL.toLowerCase()) { navigate('/'); return; }
+
+        // Notifications form
+        const form = document.getElementById('admin-notify-form');
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const content = document.getElementById('admin-notify-input').value.trim();
+          const msg = document.getElementById('admin-notify-msg');
+          if (!content) return;
+          const { error } = await supabase.rpc('admin_send_notification', { p_content: content });
+          if (error) msg.textContent = 'Error: ' + error.message; else msg.textContent = 'Sent!';
+        };
+
+        // Documents view
+        await loadAllDocs();
+
+        // Country management
+        await loadCountryTable();
+      }
+
+      async function loadAllDocs() {
+        const box = document.getElementById('admin-docs');
+        box.innerHTML = '';
+        const { data, error } = await supabase
+          .from('documents_with_users')
+          .select('*')
+          .order('created_at', { ascending: false });
+        if (error) { box.textContent = 'Error loading documents.'; return; }
+        const rows = (data||[]).map(d => `
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 p-3 border-b border-abc-light">
+            <div>${d.user_name} ${d.user_surname}</div>
+            <div class="text-abc-dark/70">${d.assigned_country || '—'}</div>
+            <a class="text-abc-blue underline" href="${d.file_url}" target="_blank">${d.file_name}</a>
+            <div class="text-abc-dark/60">${new Date(d.created_at).toLocaleString()}</div>
+          </div>
+        `).join('');
+        box.innerHTML = rows || '<div class="p-3">No documents yet.</div>';
+      }
+
+      async function loadCountryTable() {
+        const box = document.getElementById('admin-countries');
+        box.innerHTML = '';
+        const { data: users } = await supabase
+          .from('profiles')
+          .select('user_id,name,surname,assigned_country');
+        const { data: countries } = await supabase
+          .from('countries')
+          .select('name,assigned_user');
+        const inUse = new Set((users||[]).map(u => u.assigned_country).filter(Boolean));
+        const unusedCountries = (countries||[]).filter(c => !c.assigned_user).map(c => c.name);
+        const allCountries = (countries||[]).map(c => c.name);
+
+        const rows = (users||[]).map(u => {
+          const options = ['—'].concat(allCountries).map(cn => {
+            const disabled = cn !== '—' && inUse.has(cn) && cn !== u.assigned_country ? 'disabled' : '';
+            const selected = cn === (u.assigned_country || '—') ? 'selected' : '';
+            return `<option value="${cn}" ${disabled} ${selected}>${cn}</option>`;
+          }).join('');
+          return `
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 border-b border-abc-light items-center">
+              <div>${u.name} ${u.surname}</div>
+              <div class="text-abc-dark/70">Current: ${u.assigned_country || '—'}</div>
+              <div>
+                <select data-user="${u.user_id}" class="border rounded-md px-3 py-2 min-w-[220px]">${options}</select>
+              </div>
+            </div>
+          `;
+        }).join('');
+        box.innerHTML = rows || '<div class="p-3">No users yet.</div>';
+        box.querySelectorAll('select').forEach(sel => {
+          sel.addEventListener('change', async () => {
+            const userId = sel.getAttribute('data-user');
+            const value = sel.value === '—' ? null : sel.value;
+            const out = document.getElementById('admin-country-msg');
+            const { error } = await supabase.rpc('admin_set_country', { p_user_id: userId, p_country: value });
+            if (error) out.textContent = 'Error: ' + error.message; else { out.textContent = 'Updated.'; await loadCountryTable(); }
+          });
+        });
+      }
+
+      // ====== Boot ======
+      (async function boot() {
+        document.getElementById('year').textContent = new Date().getFullYear();
+        initHero();
+        initReveal();
+        initAuthForms();
+        setActiveRoute(location.pathname);
+        await refreshNav();
+        // auth listener to refresh nav
+        supabase.auth.onAuthStateChange(() => { refreshNav(); });
+      })();
+    </script>
+  </body>
+</html>
+
+
