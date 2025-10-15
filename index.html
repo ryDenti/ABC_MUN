@@ -282,6 +282,15 @@
               <input name="phone_number" required class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
             </div>
             <div>
+              <label class="block text-sm mb-1">Preferred Committee</label>
+              <select name="committee" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue">
+                <option value="UN Security Council">UN Security Council</option>
+                <option value="WHO">WHO</option>
+                <option value="UNICEF">UNICEF</option>
+                <option value="General Assembly">General Assembly</option>
+              </select>
+            </div>
+            <div>
               <label class="block text-sm mb-1">Password</label>
               <input type="password" name="password" required minlength="6" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-abc-blue" />
             </div>
@@ -470,6 +479,14 @@
             <a href="#/login" data-link class="px-3 py-2 rounded-md bg-abc-blue text-white">Login</a>
           `;
         } else {
+          const logout = document.createElement('button');
+          logout.className = 'px-3 py-2 rounded-md border border-abc-light text-abc-dark hover:bg-abc-light';
+          logout.textContent = 'Logout';
+          logout.addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            navigate('#/');
+          });
+          actions.appendChild(logout);
           const btn = document.createElement('button');
           btn.className = 'w-9 h-9 rounded-full bg-abc-blue text-white grid place-items-center';
           btn.textContent = (user.email || 'U').slice(0, 1).toUpperCase();
@@ -583,12 +600,13 @@
           const name = fd.get('name');
           const surname = fd.get('surname');
           const phone_number = fd.get('phone_number');
+          const committee = fd.get('committee');
           const msg = document.getElementById('register-msg');
           // Validate minimal password length client-side
           if (!password || password.length < 6) { msg.textContent = 'Password must be at least 6 characters.'; return; }
           // Sign up
           const isHttp = /^https?:/i.test(window.location.protocol);
-          const options = { data: { name, surname, phone_number } };
+          const options = { data: { name, surname, phone_number, committee } };
           if (isHttp) options.emailRedirectTo = window.location.origin + '/#/login';
           const { data, error } = await supabase.auth.signUp({
             email,
@@ -617,7 +635,8 @@
                 p_user_id: user.id,
                 p_name: user.user_metadata?.name || 'Delegate',
                 p_surname: user.user_metadata?.surname || 'User',
-                p_phone: user.user_metadata?.phone_number || ''
+                p_phone: user.user_metadata?.phone_number || '',
+                p_committee: user.user_metadata?.committee || null
               });
             } catch (_) {}
             navigate('#/dashboard');
