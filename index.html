@@ -313,37 +313,53 @@
       <!-- Member Dashboard: /dashboard -->
       <section id="route-dashboard" class="route hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h2 class="text-2xl font-semibold">Member Dashboard</h2>
-          <div id="profile-summary" class="mt-2 text-abc-dark/70 text-sm"></div>
-          <div class="mt-6 border-b border-abc-light flex gap-6" role="tablist">
-            <button data-tab="upload" class="tab-btn border-b-2 border-transparent py-2 px-1">Upload Files</button>
-            <button data-tab="messages" class="tab-btn border-b-2 border-transparent py-2 px-1">Messaging</button>
-            <button data-tab="notifications" class="tab-btn border-b-2 border-transparent py-2 px-1">Notifications</button>
+          <h2 class="text-3xl font-extrabold" id="welcome-title">Member Dashboard</h2>
+          <div id="profile-summary" class="mt-1 text-abc-dark/70 text-sm"></div>
+
+          <!-- Top cards -->
+          <div class="grid md:grid-cols-3 gap-5 mt-6">
+            <div class="rounded-2xl border border-abc-light bg-white p-5">
+              <div class="text-abc-dark/70 text-sm flex items-center gap-2"><span>Committee</span><span>👥</span></div>
+              <div class="mt-2 font-semibold" id="card-committee">—</div>
+            </div>
+            <div class="rounded-2xl border border-abc-light bg-white p-5">
+              <div class="text-abc-dark/70 text-sm flex items-center gap-2"><span>Current Session</span><span>🗓️</span></div>
+              <div class="mt-2 font-semibold">Resolution Drafting</div>
+              <div class="text-xs text-abc-dark/60">Room: A212</div>
+            </div>
+            <div class="rounded-2xl border border-abc-light bg-white p-5">
+              <div class="text-abc-dark/70 text-sm flex items-center gap-2"><span>Next Session</span><span>🗓️</span></div>
+              <div class="mt-2 font-semibold">Voting Procedure</div>
+              <div class="text-xs text-abc-dark/60">Tomorrow, 10:00 AM</div>
+            </div>
           </div>
 
-          <!-- Upload Tab -->
-          <div data-panel="upload" class="tab-panel mt-6 hidden">
-            <form id="upload-form" class="flex flex-col sm:flex-row items-start gap-3">
+          <!-- Middle row: Messages and Notifications -->
+          <div class="grid md:grid-cols-2 gap-5 mt-6">
+            <div class="rounded-2xl border border-abc-light bg-white p-5">
+              <div class="font-semibold">Messages</div>
+              <form id="message-form" class="mt-3 flex flex-col sm:flex-row items-stretch gap-3">
+                <select id="country-select" class="border rounded-md px-3 py-2 min-w-[220px]"></select>
+                <input id="message-input" class="border rounded-md px-3 py-2 flex-1" placeholder="Type a private message..." />
+                <button class="bg-abc-blue text-white rounded-md px-4 py-2">Send</button>
+              </form>
+              <div id="messages-thread" class="mt-4 space-y-3"></div>
+            </div>
+            <div class="rounded-2xl border border-abc-light bg-white p-5">
+              <div class="font-semibold">Notifications</div>
+              <div id="notifications-list" class="mt-3 space-y-3"></div>
+            </div>
+          </div>
+
+          <!-- Bottom: Upload -->
+          <div class="rounded-2xl border border-abc-light bg-white p-5 mt-6">
+            <div class="font-semibold">Submit Resolution Paper</div>
+            <form id="upload-form" class="mt-3 flex flex-col sm:flex-row items-start gap-3">
               <input type="file" id="file-input" class="block" />
-              <button class="bg-abc-blue text-white rounded-md px-4 py-2">Upload</button>
+              <button class="bg-abc-blue text-white rounded-md px-4 py-2">Upload Document</button>
               <span id="upload-msg" class="text-sm text-abc-dark/70"></span>
             </form>
             <div class="mt-4" id="docs-list"></div>
-          </div>
-
-          <!-- Messages Tab -->
-          <div data-panel="messages" class="tab-panel mt-6 hidden">
-            <form id="message-form" class="flex flex-col sm:flex-row items-stretch gap-3">
-              <select id="country-select" class="border rounded-md px-3 py-2 min-w-[220px]"></select>
-              <input id="message-input" class="border rounded-md px-3 py-2 flex-1" placeholder="Type a private message..." />
-              <button class="bg-abc-blue text-white rounded-md px-4 py-2">Send</button>
-            </form>
-            <div id="messages-thread" class="mt-4 space-y-3"></div>
-          </div>
-
-          <!-- Notifications Tab -->
-          <div data-panel="notifications" class="tab-panel mt-6 hidden">
-            <div id="notifications-list" class="space-y-3"></div>
           </div>
         </div>
       </section>
@@ -459,6 +475,13 @@
           btn.textContent = (user.email || 'U').slice(0, 1).toUpperCase();
           btn.addEventListener('click', () => { navigate('#/dashboard'); });
           actions.appendChild(btn);
+          if ((user.email||'').toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
+            const admin = document.createElement('a');
+            admin.href = '#/admin-dashboard'; admin.setAttribute('data-link', '');
+            admin.className = 'hidden sm:inline px-3 py-2 rounded-md border border-abc-blue text-abc-blue hover:bg-abc-light';
+            admin.textContent = 'Admin';
+            actions.prepend(admin);
+          }
         }
       }
 
@@ -510,6 +533,15 @@
           const y = window.scrollY || 0; globe.style.setProperty('--py', Math.min(20, y*0.05)+'px'); globe.classList.add('parallax');
         };
         window.addEventListener('scroll', onScroll);
+      }
+
+      // Country name -> simple flag emoji (best-effort)
+      function countryFlagEmoji(name){
+        if(!name) return '';
+        const map = {
+          'Azerbaijan':'🇦🇿','United Kingdom':'🇬🇧','United States':'🇺🇸','Turkey':'🇹🇷','France':'🇫🇷','Germany':'🇩🇪','Russia':'🇷🇺','China':'🇨🇳','India':'🇮🇳','Japan':'🇯🇵','Italy':'🇮🇹','Spain':'🇪🇸','Brazil':'🇧🇷','Canada':'🇨🇦','Australia':'🇦🇺'
+        };
+        return map[name] || '';
       }
 
       // ====== Scroll reveal ======
@@ -622,7 +654,10 @@
         currentProfile = await ensureProfile();
         const sum = document.getElementById('profile-summary');
         if (currentProfile) {
-          sum.textContent = `${currentProfile.name} ${currentProfile.surname} — Country: ${currentProfile.assigned_country || 'Assigning...'}`;
+          const flag = countryFlagEmoji(currentProfile.assigned_country);
+          document.getElementById('welcome-title').textContent = `Welcome ${currentProfile.name}`;
+          sum.textContent = `${currentProfile.name} ${currentProfile.surname} — Country: ${flag} ${currentProfile.assigned_country || 'Assigning...'}`;
+          document.getElementById('card-committee').textContent = currentProfile.assigned_country ? `${currentProfile.assigned_country} Delegate` : 'Assigning...';
         }
 
         // Tabs
@@ -690,6 +725,9 @@
         (countries || []).filter(c => c.name !== currentProfile.assigned_country).forEach(c => {
           const opt = document.createElement('option'); opt.value = c.name; opt.textContent = c.name; sel.appendChild(opt);
         });
+        if (!sel.value) {
+          const opt = document.createElement('option'); opt.value = ''; opt.textContent = 'No available countries'; sel.appendChild(opt);
+        }
 
         const form = document.getElementById('message-form');
         form.onsubmit = async (e) => {
@@ -764,7 +802,7 @@
       // ====== Admin ======
       async function initAdmin() {
         const { data: { user } } = await supabase.auth.getUser();
-        if (!user || (user.email||'').toLowerCase() !== ADMIN_EMAIL.toLowerCase()) { navigate('/'); return; }
+        if (!user || (user.email||'').toLowerCase() !== ADMIN_EMAIL.toLowerCase()) { navigate('#/'); return; }
 
         // Notifications form
         const form = document.getElementById('admin-notify-form');
@@ -813,7 +851,6 @@
           .from('countries')
           .select('name,assigned_user');
         const inUse = new Set((users||[]).map(u => u.assigned_country).filter(Boolean));
-        const unusedCountries = (countries||[]).filter(c => !c.assigned_user).map(c => c.name);
         const allCountries = (countries||[]).map(c => c.name);
 
         const rows = (users||[]).map(u => {
