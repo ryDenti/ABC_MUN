@@ -94,7 +94,7 @@
                   Experience diplomacy, debate, and global collaboration at ABC MUN.
                 </p>
                 <div class="mt-8 flex gap-3">
-                  <a href="/register" data-link class="px-5 py-3 bg-abc-blue text-white rounded-md shadow hover:shadow-lg transition will-transform">Register</a>
+                  <a href="#/register" data-link class="px-5 py-3 bg-abc-blue text-white rounded-md shadow hover:shadow-lg transition will-transform">Register</a>
                   <a href="#about" class="px-5 py-3 border border-abc-blue text-abc-blue rounded-md hover:bg-abc-light transition will-transform">Learn more</a>
                 </div>
               </div>
@@ -410,37 +410,38 @@
 
       // ====== Simple Router ======
       const routes = {
-        '/': 'route-home',
-        '/register': 'route-register',
-        '/login': 'route-login',
-        '/dashboard': 'route-dashboard',
-        '/admin-dashboard': 'route-admin',
+        '#/': 'route-home',
+        '#/register': 'route-register',
+        '#/login': 'route-login',
+        '#/dashboard': 'route-dashboard',
+        '#/admin-dashboard': 'route-admin',
       };
 
-      function setActiveRoute(pathname) {
+      function setActiveRoute(hash) {
         Object.values(routes).forEach(id => document.getElementById(id).classList.add('hidden'));
-        const id = routes[pathname] || routes['/'];
+        const id = routes[hash] || routes['#/'];
         document.getElementById(id).classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      function navigate(pathname) {
-        window.history.pushState({}, '', pathname);
-        setActiveRoute(pathname);
+      function navigate(hash) {
+        if (!hash.startsWith('#/')) hash = '#/';
+        if (location.hash !== hash) location.hash = hash;
+        setActiveRoute(hash);
         refreshNav();
         // Load route data
-        if (pathname === '/dashboard') initDashboard();
-        if (pathname === '/admin-dashboard') initAdmin();
+        if (hash === '#/dashboard') initDashboard();
+        if (hash === '#/admin-dashboard') initAdmin();
       }
 
       document.addEventListener('click', (e) => {
         const link = e.target.closest('[data-link]');
-        if (link && link.getAttribute('href').startsWith('/')) {
+        if (link && link.getAttribute('href').startsWith('#/')) {
           e.preventDefault();
           navigate(link.getAttribute('href'));
         }
       });
-      window.addEventListener('popstate', () => setActiveRoute(location.pathname));
+      window.addEventListener('hashchange', () => setActiveRoute(location.hash || '#/'));
 
       // ====== Navbar state ======
       async function refreshNav() {
@@ -449,16 +450,14 @@
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
           actions.innerHTML = `
-            <a href="/register" data-link class="px-3 py-2 rounded-md border border-abc-blue text-abc-blue hover:bg-abc-light">Register</a>
-            <a href="/login" data-link class="px-3 py-2 rounded-md bg-abc-blue text-white">Login</a>
+            <a href="#/register" data-link class="px-3 py-2 rounded-md border border-abc-blue text-abc-blue hover:bg-abc-light">Register</a>
+            <a href="#/login" data-link class="px-3 py-2 rounded-md bg-abc-blue text-white">Login</a>
           `;
         } else {
           const btn = document.createElement('button');
           btn.className = 'w-9 h-9 rounded-full bg-abc-blue text-white grid place-items-center';
           btn.textContent = (user.email || 'U').slice(0, 1).toUpperCase();
-          btn.addEventListener('click', () => {
-            navigate('/dashboard');
-          });
+          btn.addEventListener('click', () => { navigate('#/dashboard'); });
           actions.appendChild(btn);
         }
       }
@@ -558,7 +557,7 @@
           // Sign up
           const isHttp = /^https?:/i.test(window.location.protocol);
           const options = { data: { name, surname, phone_number } };
-          if (isHttp) options.emailRedirectTo = window.location.origin + '/login';
+          if (isHttp) options.emailRedirectTo = window.location.origin + '/#/login';
           const { data, error } = await supabase.auth.signUp({
             email,
             password,
@@ -589,7 +588,7 @@
                 p_phone: user.user_metadata?.phone_number || ''
               });
             } catch (_) {}
-            navigate('/dashboard');
+            navigate('#/dashboard');
           }
         });
       }
@@ -619,7 +618,7 @@
 
       async function initDashboard() {
         const { data: { user } } = await supabase.auth.getUser();
-        if (!user) { navigate('/login'); return; }
+        if (!user) { navigate('#/login'); return; }
         currentProfile = await ensureProfile();
         const sum = document.getElementById('profile-summary');
         if (currentProfile) {
@@ -851,7 +850,7 @@
         initHero();
         initReveal();
         initAuthForms();
-        setActiveRoute(location.pathname);
+        setActiveRoute(location.hash || '#/');
         await refreshNav();
         // auth listener to refresh nav
         supabase.auth.onAuthStateChange(() => { refreshNav(); });
