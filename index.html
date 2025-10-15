@@ -67,7 +67,7 @@
     <!-- Main container for SPA routes -->
     <main class="pt-20">
       <!-- Home Route: / -->
-      <section id="route-home" class="route hidden">
+      <section id="route-home" class="route">
         <!-- Hero -->
         <section class="relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-b from-abc-light to-white"></div>
@@ -319,7 +319,28 @@
       const SUPABASE_URL = 'SUPABASE_URL_HERE';
       const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_HERE';
       const ADMIN_EMAIL = 'admin@abc.edu.az';
-      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      let supabase;
+      try {
+        supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      } catch (_) {}
+      if (!supabase) {
+        // Minimal no-op fallback so UI still renders when CDN is blocked/offline
+        const resolved = (v) => Promise.resolve(v);
+        const rejected = (msg) => Promise.reject(new Error(msg));
+        supabase = {
+          auth: {
+            getUser: () => resolved({ data: { user: null }, error: null }),
+            signUp: () => rejected('Supabase not available'),
+            signInWithPassword: () => rejected('Supabase not available'),
+            onAuthStateChange: () => ({ data: { subscription: { unsubscribe(){} } } }),
+          },
+          from: () => ({ select: () => resolved({ data: [], error: null }), insert: () => rejected('Supabase not available'), update: () => rejected('Supabase not available'), delete: () => rejected('Supabase not available'), eq: () => ({ select: () => resolved({ data: [], error: null }) }), single: () => resolved({ data: null, error: null }), order: () => resolved({ data: [], error: null }), not: () => ({ select: () => resolved({ data: [], error: null }) }), or: () => ({ order: () => resolved({ data: [], error: null }) }) }),
+          rpc: () => rejected('Supabase not available'),
+          storage: { from: () => ({ upload: () => rejected('Supabase not available'), getPublicUrl: () => ({ data: { publicUrl: '#' } }) }) },
+          channel: () => ({ on(){return this}, subscribe(){return this} }),
+          removeChannel: () => {},
+        };
+      }
 
       // ====== Simple Router ======
       const routes = {
