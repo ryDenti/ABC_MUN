@@ -36,6 +36,10 @@
         transform-style: preserve-3d;
         perspective: 1000px;
       }
+      .tilt-card { transition: transform .15s ease, box-shadow .2s ease; transform-style: preserve-3d; }
+      .tilt-card:hover { box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+      .feature-card { transition: transform .15s ease, box-shadow .2s ease; transform-style: preserve-3d; }
+      .feature-card:hover { box-shadow: 0 18px 40px rgba(0,0,0,.08); }
       .floating {
         animation: floatY 6s ease-in-out infinite;
       }
@@ -45,6 +49,7 @@
       }
       .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
       .revealed { opacity: 1; transform: translateY(0); }
+      .parallax { transform: translateY(var(--py,0px)) scale(1); transition: transform .2s ease-out; }
     </style>
 
     <!-- Supabase JS v2 -->
@@ -58,6 +63,14 @@
           <div class="w-9 h-9 rounded bg-abc-blue text-white grid place-items-center font-bold shadow-glow">A</div>
           <span class="font-semibold tracking-wide">ABC&nbsp;MUN</span>
         </a>
+        <div class="hidden md:flex items-center gap-6 text-sm text-abc-dark/80" id="nav-links">
+          <a href="#about" data-scroll class="hover:text-abc-blue">About</a>
+          <a href="#committees" data-scroll class="hover:text-abc-blue">Committees</a>
+          <a href="#timeline" data-scroll class="hover:text-abc-blue">Timeline</a>
+          <a href="#team" data-scroll class="hover:text-abc-blue">Our Team</a>
+          <a href="#gallery" data-scroll class="hover:text-abc-blue">Gallery</a>
+          <a href="#faq" data-scroll class="hover:text-abc-blue">FAQ</a>
+        </div>
         <div class="flex items-center gap-2" id="nav-actions">
           <!-- Filled dynamically -->
         </div>
@@ -98,26 +111,48 @@
         </section>
 
         <!-- About -->
-        <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
-          <h2 class="text-2xl font-semibold text-abc-dark">About ABC MUN</h2>
-          <p class="mt-4 text-abc-dark/70">
-            ABC MUN brings together passionate students to debate pressing global issues in a respectful, academic environment at the Azerbaijan British College.
+        <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
+          <h2 class="text-3xl font-bold text-abc-dark">About <span class="text-abc-blue">ABC MUN</span></h2>
+          <p class="mt-4 text-abc-dark/70 max-w-3xl">
+            Azerbaijan British College's Model United Nations is a premier educational conference that brings together aspiring diplomats, leaders, and changemakers. Our conference provides a platform to engage in meaningful debate, develop critical thinking, and build lasting connections.
           </p>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="feature-card p-6 rounded-2xl border border-abc-light bg-white shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-abc-blue to-abc-dark/80 text-white grid place-items-center">🌍</div>
+              <h3 class="mt-4 font-semibold">Global Perspective</h3>
+              <p class="text-sm text-abc-dark/70 mt-1">Engage international issues and build a deeper understanding of global affairs.</p>
+            </div>
+            <div class="feature-card p-6 rounded-2xl border border-abc-light bg-white shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-abc-accent to-amber-500 text-white grid place-items-center">👥</div>
+              <h3 class="mt-4 font-semibold">Leadership Skills</h3>
+              <p class="text-sm text-abc-dark/70 mt-1">Develop negotiation, collaboration, and public speaking for life.</p>
+            </div>
+            <div class="feature-card p-6 rounded-2xl border border-abc-light bg-white shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white grid place-items-center">🎖️</div>
+              <h3 class="mt-4 font-semibold">Academic Excellence</h3>
+              <p class="text-sm text-abc-dark/70 mt-1">Compete for recognition while deepening knowledge of policy-making.</p>
+            </div>
+            <div class="feature-card p-6 rounded-2xl border border-abc-light bg-white shadow-sm">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center">💡</div>
+              <h3 class="mt-4 font-semibold">Real-World Impact</h3>
+              <p class="text-sm text-abc-dark/70 mt-1">Design solutions to pressing challenges through collaborative diplomacy.</p>
+            </div>
+          </div>
         </section>
 
         <!-- Committees -->
-        <section id="committees" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+        <section id="committees" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
           <h2 class="text-2xl font-semibold text-abc-dark">Committees</h2>
           <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light hover:shadow-lg transition will-transform bg-white">
               <h3 class="font-semibold">UN Security Council</h3>
               <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
             </div>
-            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light hover:shadow-lg transition will-transform bg-white">
               <h3 class="font-semibold">WHO</h3>
               <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
             </div>
-            <div class="p-6 rounded-lg border border-abc-light hover:shadow-lg transition will-transform">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light hover:shadow-lg transition will-transform bg-white">
               <h3 class="font-semibold">UNICEF</h3>
               <p class="text-sm text-abc-dark/70 mt-2">Topic: PLACEHOLDER_HERE</p>
             </div>
@@ -125,43 +160,46 @@
         </section>
 
         <!-- Timeline -->
-        <section id="timeline" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
-          <h2 class="text-2xl font-semibold text-abc-dark">Timeline</h2>
-          <ol class="mt-6 relative border-l border-abc-light pl-6 space-y-6">
-            <li>
-              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-blue"></div>
-              <div class="text-abc-dark"><span class="font-semibold">Registration Opens</span> — PLACEHOLDER_HERE</div>
-            </li>
-            <li>
-              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-accent"></div>
-              <div class="text-abc-dark"><span class="font-semibold">Position Papers Due</span> — PLACEHOLDER_HERE</div>
-            </li>
-            <li>
-              <div class="absolute -left-2.5 w-5 h-5 rounded-full bg-abc-blue"></div>
-              <div class="text-abc-dark"><span class="font-semibold">Conference Day</span> — PLACEHOLDER_HERE</div>
-            </li>
-          </ol>
+        <section id="timeline" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
+          <h2 class="text-3xl font-bold text-abc-dark">Timeline</h2>
+          <div class="mt-8 grid md:grid-cols-3 gap-6">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light bg-gradient-to-br from-abc-light to-white">
+              <div class="text-sm text-abc-blue font-semibold">Phase 1</div>
+              <div class="text-xl font-semibold mt-1">Registration Opens</div>
+              <div class="text-abc-dark/70 mt-2">PLACEHOLDER_HERE</div>
+            </div>
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light bg-gradient-to-br from-white to-abc-light">
+              <div class="text-sm text-abc-blue font-semibold">Phase 2</div>
+              <div class="text-xl font-semibold mt-1">Position Papers Due</div>
+              <div class="text-abc-dark/70 mt-2">PLACEHOLDER_HERE</div>
+            </div>
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light bg-gradient-to-br from-abc-light to-white">
+              <div class="text-sm text-abc-blue font-semibold">Phase 3</div>
+              <div class="text-xl font-semibold mt-1">Conference Days</div>
+              <div class="text-abc-dark/70 mt-2">PLACEHOLDER_HERE</div>
+            </div>
+          </div>
         </section>
 
         <!-- Our Team -->
-        <section id="team" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+        <section id="team" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
           <h2 class="text-2xl font-semibold text-abc-dark">Our Team</h2>
           <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light flex items-center gap-4 bg-white">
               <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
               <div>
                 <div class="font-semibold">PLACEHOLDER_HERE</div>
                 <div class="text-sm text-abc-dark/70">Secretary-General</div>
               </div>
             </div>
-            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light flex items-center gap-4 bg-white">
               <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
               <div>
                 <div class="font-semibold">PLACEHOLDER_HERE</div>
                 <div class="text-sm text-abc-dark/70">Deputy Secretary-General</div>
               </div>
             </div>
-            <div class="p-6 rounded-lg border border-abc-light flex items-center gap-4">
+            <div class="tilt-card p-6 rounded-2xl border border-abc-light flex items-center gap-4 bg-white">
               <div class="w-14 h-14 rounded-full bg-abc-light grid place-items-center text-abc-blue">PH</div>
               <div>
                 <div class="font-semibold">PLACEHOLDER_HERE</div>
@@ -172,13 +210,41 @@
         </section>
 
         <!-- Gallery -->
-        <section id="gallery" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal">
+        <section id="gallery" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
           <h2 class="text-2xl font-semibold text-abc-dark">Gallery</h2>
           <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
-            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
-            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
-            <div class="aspect-square bg-abc-light rounded-lg grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="tilt-card aspect-square bg-abc-light rounded-xl grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="tilt-card aspect-square bg-abc-light rounded-xl grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="tilt-card aspect-square bg-abc-light rounded-xl grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+            <div class="tilt-card aspect-square bg-abc-light rounded-xl grid place-items-center text-abc-blue">PLACEHOLDER_HERE</div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 reveal">
+          <h2 class="text-3xl font-bold text-abc-dark">Frequently Asked <span class="text-abc-blue">Questions</span></h2>
+          <div class="mt-6 divide-y border border-abc-light rounded-2xl overflow-hidden bg-white">
+            <details class="group">
+              <summary class="px-5 py-4 cursor-pointer flex justify-between items-center">
+                <span>Who can participate in ABC MUN?</span>
+                <span class="transition group-open:rotate-180">⌄</span>
+              </summary>
+              <div class="px-5 pb-5 text-abc-dark/70">Students interested in diplomacy, policy, and global issues. Beginners welcome!</div>
+            </details>
+            <details class="group">
+              <summary class="px-5 py-4 cursor-pointer flex justify-between items-center">
+                <span>What is the registration fee?</span>
+                <span class="transition group-open:rotate-180">⌄</span>
+              </summary>
+              <div class="px-5 pb-5 text-abc-dark/70">PLACEHOLDER_HERE</div>
+            </details>
+            <details class="group">
+              <summary class="px-5 py-4 cursor-pointer flex justify-between items-center">
+                <span>Do I need prior MUN experience?</span>
+                <span class="transition group-open:rotate-180">⌄</span>
+              </summary>
+              <div class="px-5 pb-5 text-abc-dark/70">No—our committees are designed for all experience levels.</div>
+            </details>
           </div>
         </section>
 
@@ -440,6 +506,11 @@
           requestAnimationFrame(draw);
         }
         requestAnimationFrame(draw);
+        // light parallax on scroll
+        const onScroll = () => {
+          const y = window.scrollY || 0; globe.style.setProperty('--py', Math.min(20, y*0.05)+'px'); globe.classList.add('parallax');
+        };
+        window.addEventListener('scroll', onScroll);
       }
 
       // ====== Scroll reveal ======
@@ -448,6 +519,26 @@
           for (const e of entries) if (e.isIntersecting) e.target.classList.add('revealed');
         }, { threshold: 0.15 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        // tilt-on-hover following cursor
+        document.querySelectorAll('.tilt-card, .feature-card').forEach(card => {
+          const max = 10;
+          card.addEventListener('mousemove', (ev) => {
+            const r = card.getBoundingClientRect();
+            const px = (ev.clientX - r.left) / r.width - 0.5;
+            const py = (ev.clientY - r.top) / r.height - 0.5;
+            card.style.transform = `rotateX(${(-py*max)}deg) rotateY(${(px*max)}deg) translateZ(0)`;
+          });
+          card.addEventListener('mouseleave', () => { card.style.transform = 'translateZ(0)'; });
+        });
+        // smooth scroll for section links
+        document.querySelectorAll('[data-scroll]').forEach(a => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = a.getAttribute('href');
+            const el = document.querySelector(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
       }
 
       // ====== Auth forms ======
@@ -461,16 +552,21 @@
           const name = fd.get('name');
           const surname = fd.get('surname');
           const phone_number = fd.get('phone_number');
-          const { error } = await supabase.auth.signUp({
-            email, password,
-            options: {
-              emailRedirectTo: window.location.origin + '/login',
-              data: { name, surname, phone_number },
-            },
-          });
           const msg = document.getElementById('register-msg');
+          // Validate minimal password length client-side
+          if (!password || password.length < 6) { msg.textContent = 'Password must be at least 6 characters.'; return; }
+          // Sign up
+          const isHttp = /^https?:/i.test(window.location.protocol);
+          const options = { data: { name, surname, phone_number } };
+          if (isHttp) options.emailRedirectTo = window.location.origin + '/login';
+          const { data, error } = await supabase.auth.signUp({
+            email,
+            password,
+            options
+          });
+          // If signUp succeeds but profile row isn't auto-created yet, attempt RPC once user exists (handled on login too)
           if (error) msg.textContent = 'Error: ' + error.message;
-          else msg.textContent = 'Success! Please check your email to verify your account.';
+          else msg.textContent = 'Success! Check your email for a verification link.';
         });
 
         const login = document.getElementById('login-form');
@@ -479,10 +575,22 @@
           const fd = new FormData(login);
           const email = fd.get('email');
           const password = fd.get('password');
-          const { error } = await supabase.auth.signInWithPassword({ email, password });
+          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
           const msg = document.getElementById('login-msg');
           if (error) msg.textContent = 'Error: ' + error.message;
-          else navigate('/dashboard');
+          else {
+            // Ensure profile row and country assignment exists after login
+            try {
+              const { data: { user } } = await supabase.auth.getUser();
+              if (user) await supabase.rpc('create_profile', {
+                p_user_id: user.id,
+                p_name: user.user_metadata?.name || 'Delegate',
+                p_surname: user.user_metadata?.surname || 'User',
+                p_phone: user.user_metadata?.phone_number || ''
+              });
+            } catch (_) {}
+            navigate('/dashboard');
+          }
         });
       }
 
